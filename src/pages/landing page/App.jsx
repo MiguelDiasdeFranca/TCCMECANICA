@@ -9,8 +9,12 @@ export default function App() {
 
       <img src= {logo} className="logoempresa" alt="logo" />
 
-      <p>R. Serra de Japi, 1177 - Vila Gomes Cardim, São Paulo</p>
-      <p>(11) 93772-1364</p>
+      <a href="">home</a>
+      <a href="">sobre nós</a>
+      <a href="">F.A.Q</a>
+      <a href=""><button>faça seu agendamento</button></a>
+
+      
 
       </div>
 
