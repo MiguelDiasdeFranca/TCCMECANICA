@@ -1,4 +1,4 @@
-import logo from './logo.png'
+import logo from './logo.png';
 import './App.scss';
 
 export default function App() {
@@ -7,14 +7,14 @@ export default function App() {
 
       <div className='cabecalho'>
 
-      <img src= {logo} className="logoempresa" alt="logo" />
+        <img src={logo} className="logoempresa" alt="logo" />
 
-      <a href="">home</a>
-      <a href="">sobre nós</a>
-      <a href="">F.A.Q</a>
-      <a href=""><button>faça seu agendamento</button></a>
+        <a href="">home</a>
+        <a href="">sobre nós</a>
+        <a href="">F.A.Q</a>
+        <a href=""><button>faça seu agendamento</button></a>
 
-      
+
 
       </div>
 
@@ -25,4 +25,3 @@ export default function App() {
 }
 
 
- 

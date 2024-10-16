@@ -1,22 +1,18 @@
 .cabecalho{
 display: flex;
 flex-direction: row;
-height: 10vh;
+height: 20vh;
 align-items: center;
 background-color: black;
 justify-content: space-around;
-
-
-
-
-
 }
 
 .logoempresa{
 
-  height: 10vh;
+  height: 100%;
   margin-right: 60vh;
   margin-left: 10vh;
+  width: 20vh;
 }
 
 p{
@@ -25,4 +21,8 @@ p{
 
 button{
   color: red;
+}
+
+a{
+  text-decoration: none;
 }
