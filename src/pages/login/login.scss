@@ -1,0 +1,34 @@
+.login-inteiro{
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    height: 97vh;
+    align-items: center;
+        
+    .partedireita {
+        display: flex;
+        flex-direction: column;
+        gap: 2vh;
+        align-items: center;
+        justify-content:center;
+        padding: 30vh;
+
+    }
+
+
+
+    img{
+        width: 40vh;
+        margin-left: 20vh;
+        width: ;
+    }
+
+    input {
+        
+        height: 3vh;
+        
+
+    }
+
+
+}
