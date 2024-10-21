@@ -34,16 +34,20 @@ export default function login() {
           <div className='imageml'>
           <img src={cadeado} alt="" className='icons'/><input type="text" placeholder='repita sua senha ' />
           </div>
+
+ 
+ 
+          <div className='doisbotoes'>
           <div className='botao'>
-            <button className='criar'>Criar conta</button>
+            <button>Criar conta</button>
           </div>
           <div className='botao'>
           <button>Fazer login</button>
           </div>
 
         </div>
-
-
+      </div>
+       
     </div>
 
 
