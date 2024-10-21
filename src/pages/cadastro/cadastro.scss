@@ -1,0 +1,113 @@
+$primary-color: #fff; // branco
+$secondary-color: #000000; // preto
+$accent-color: #FF0000; // vermeio
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: $secondary-color;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: $secondary-color;
+  
+  .login-logo {
+    text-align: center;
+    margin-bottom: 30px;
+    
+    img {
+      width: 100px;
+    }
+    
+    h2, p {
+      color: $primary-color;
+      margin: 0;
+    }
+    
+    h2 {
+      font-size: 24px;
+      margin-top: 10px;
+    }
+    
+    p {
+      font-size: 16px;
+    }
+  }
+
+  .login-form {
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+    
+    .input-group {
+      position: relative;
+      margin-bottom: 20px;
+      
+      i {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        color: $primary-color;
+      }
+      
+      input {
+        width: 100%;
+        padding: 10px 40px;
+        border: 1px solid $primary-color;
+        border-radius: 5px;
+        background-color: transparent;
+        color: $primary-color;
+        font-size: 16px;
+        
+        &::placeholder {
+          color: $primary-color;
+        }
+      }
+    }
+    
+    .create-account-btn, .login-btn {
+      width: 100%;
+      padding: 10px;
+      background-color: $primary-color;
+      color: $secondary-color;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-bottom: 10px;
+      transition: background-color 0.3s;
+      
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+    }
+    
+    .login-btn {
+      background-color: transparent;
+      color: $primary-color;
+      border: 1px solid $primary-color;
+      
+      &:hover {
+        background-color: $primary-color;
+        color: $secondary-color;
+      }
+    }
+  }
+}
+
+
+
+

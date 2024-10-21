@@ -40,6 +40,7 @@ export default function App() {
 
 
           <img className='imagemcarro' src={logo1} alt="logo1" />
+          <h1>oiiiiiiii</h1>
         </div>
       </div>
 
