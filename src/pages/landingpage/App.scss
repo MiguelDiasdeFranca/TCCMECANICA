@@ -1,4 +1,6 @@
-*{box-sizing: border-box;}
+*{box-sizing: border-box;
+background-color: black;}
+
 
 .cabecalho{
 display: flex;
@@ -38,14 +40,19 @@ a{
   display: flex;
   flex-direction: row;
   height: 70vh;
- 
+ background-image:url('http://localhost:3000/assets/images/image.svg');
+ background-repeat: no-repeat;
+ background-size: cover;
 }
 
 h1{
   color: white;
   
 }
-
+h2{
+  color: white;
+  
+}
 .imagemcarro{
   height: 50vh;
   width: 90vh;
@@ -72,3 +79,36 @@ height: 30vh;
   
   
 }
+
+.sobrenos{
+  width: 10vh;
+  height: 20vh;
+
+}
+
+.partesobrenos{
+  display: flex;
+  flex-direction: row;
+  gap: 20vh;
+}
+
+.esquerda{
+  position:absolute;
+	left:100%;
+	top:50%;
+}
+
+.cara{
+  height: 20vh;
+  width: 40vh;
+}
+
+.pt1{
+  display: flex;
+  flex-direction: row;
+}
+.pt2{
+ display: flex;
+ flex-direction: column;
+}
+
