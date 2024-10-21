@@ -1,0 +1,74 @@
+*{box-sizing: border-box;}
+
+.cabecalho{
+display: flex;
+flex-direction: row;
+height: 20vh;
+align-items: center;
+background-color: black;
+justify-content: space-around;
+}
+
+.logoempresa{
+
+  height: 100%;
+  margin-right: 60vh;
+  margin-left: 10vh;
+  width: 20vh;
+}
+
+p{
+  color: white;
+}
+
+button{
+  color: red;
+  box-shadow: 2px,2px,2px,2px;
+}
+
+a{
+  text-decoration: none;
+}
+
+
+.partebaixo{
+
+  padding: 5vh;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  height: 70vh;
+ 
+}
+
+h1{
+  color: white;
+  
+}
+
+.imagemcarro{
+  height: 50vh;
+  width: 90vh;
+  margin-right: 3vh;
+
+
+
+}
+
+.escrita{
+
+flex-direction: column;
+display: flex;
+justify-content:center ;
+height: 30vh;
+
+
+
+}
+
+.roda{
+  font-size: 56px;
+  color:red
+  
+  
+}
