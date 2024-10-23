@@ -43,7 +43,7 @@ export default function Login2() {
     
       
       <div className='botao'>
-        <button><strong>Fazer login</strong></button>
+        <button className='login'><strong>Fazer login</strong></button>
       </div>
     </div>
   );

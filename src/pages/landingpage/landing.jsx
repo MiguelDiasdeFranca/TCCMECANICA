@@ -1,8 +1,9 @@
 import logo from './logo.png';
 import logo1 from './logo1.png'
-import './App.scss'
+import './landing.scss'
 import imgsobrenos from './imgsobrenos.svg'
 import imagemcrinha from './imagemcarinha.svg'
+import { Link } from "react-router-dom";
 
 
 export default function App() {
@@ -17,11 +18,10 @@ export default function App() {
         <a href="">sobre nós</a>
         <a href="">F.A.Q</a>
         <a href=""><button>faça seu agendamento</button></a>
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 3e9e8a9b70c466580f3ddefd2ef69963a7eafb2d
+
+
       </div>
 
       <div className='partebaixo'>
@@ -34,12 +34,14 @@ export default function App() {
 
 
           <p>A mais de vinte anos exercendo nossa profissão, para que você sempre rode seguro!</p>
-
-          <button className='botao'>Faça seu login</button>
+    <Link to ="/login">
+          <button className='botao'>Fazer cadastro</button>
           <p>Novo aqui? faça seu cadastro</p>
+          
+    </Link>
 
         </div>
-<<<<<<< HEAD
+
       
       </div>
 
@@ -57,7 +59,7 @@ export default function App() {
         <img className='cara' src={imagemcrinha} alt = 'cara'/>
         </div>
     
-=======
+
         <div className='imagem12'>
 
 
@@ -67,9 +69,6 @@ export default function App() {
 
       </div>
 
-  
->>>>>>> 3e9e8a9b70c466580f3ddefd2ef69963a7eafb2d
-    </div>
 
 
 
