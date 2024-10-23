@@ -5,7 +5,7 @@ import pessoa from './pessoa.png'
 import email from './email.png'
 
 
-export default function login() {
+export default function Login() {
 
   return (
 
