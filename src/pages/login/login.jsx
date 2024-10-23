@@ -1,5 +1,9 @@
 import './login.scss'
-import imgempresa1 from './imgempresa.png'
+import imgempresa from './imgempresa.png'
+import cadeado from './cadeado.jpg'
+import pessoa from './pessoa.png'
+import email from './email.png'
+
 
 export default function login() {
 
@@ -10,24 +14,40 @@ export default function login() {
      
 
 
-        <div classname='imagem' >
+        <div className='imagem' >
 
-          <img src={imgempresa1} alt="" />
-
+          <img src={imgempresa} alt="" className='empresa' />
 
         </div>
 
         <div className='partedireita'>
 
-         <img src="" alt="" /> <input type="text" placeholder='nome' />
-          <input type="text" placeholder='e-mail' />
-          <input type="text" placeholder='senha' />
-          <input type="text" placeholder='repita sua senha ' />
+        <div className='imageml'>
+       <img src={pessoa} alt="" className='icons'/>  <input type="text" placeholder='nome' />
+       </div> 
+       <div className='imageml'>
+         <img src={email} alt="" className='icons' /> <input type="text" placeholder='e-mail' />
+         </div>
+         <div className='imageml'>
+          <img src={cadeado} alt="" className='icons' /><input type="text" placeholder='senha' />
+          </div>
+          <div className='imageml'>
+          <img src={cadeado} alt="" className='icons'/><input type="text" placeholder='repita sua senha ' />
+          </div>
+
+ 
+ 
+          <div className='doisbotoes'>
+          <div className='botao'>
+            <button>Criar conta</button>
+          </div>
+          <div className='botao'>
+          <button>Fazer login</button>
+          </div>
 
         </div>
-
-     
-
+      </div>
+       
     </div>
 
 
