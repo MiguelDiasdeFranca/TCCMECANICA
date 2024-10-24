@@ -34,40 +34,38 @@ export default function App() {
 
 
           <p>A mais de vinte anos exercendo nossa profissão, para que você sempre rode seguro!</p>
-    <Link to ="/login">
-          <button className='botao'>Fazer cadastro</button>
-          <p>Novo aqui? faça seu cadastro</p>
-          
-    </Link>
+          <Link to="/login">
+            <button className='botao'>Fazer cadastro</button>
+            <p>Novo aqui? faça seu cadastro</p>
+
+          </Link>
 
         </div>
+
+
+      </div>
+
+      <div className='partesobrenos'>
+
+        <div className='parte1'>
+
+
+          <img className='sobre' src={imgsobrenos} alt="" /> <h2>sobre Nós</h2>
+
+          <p>Rodando Seguro foi fundada em 2000 <br /> por Laura Martins, uma apaixonada <br /> mecânica automotiva com uma visão <br /> clara: transformar a manutenção de <br /> veículos em uma experiência que <br /> garanta não apenas a qualidade dos <br /> serviços, mas também a segurança e a <br /> confiança dos motoristas..</p>
+
+        </div>
+
+
+        
+
+      </div>
 
       
-      </div>
-
-      <div className='partesobrenos'></div>
-          <div className='pt2'>
-        <div className='pt1'>
-
-      <img className='sobrenos' src={imgsobrenos} alt="imgsobrenos" />
-      <h2>Sobre Nós</h2>
-        </div>
-
-      <p className='para'>Lorem ipsum dolor sit, amet <br />consectetur adipisicing elit. Qui, quisquam praesentium pariatur consequuntur consequatur ut eum rem totam possimus <br />voluptates <br />expedita mollitia. Maxime magni sed sapiente quaerat, enim reiciendis assumenda?</p>
-      </div>
-        <div className='mecanico'>
-        <img className='cara' src={imagemcrinha} alt = 'cara'/>
-        </div>
-    
-
-        <div className='imagem12'>
 
 
-          <img className='imagemcarro' src={logo1} alt="logo1" />
-          <h1>oiiiiiiii</h1>
-        </div>
 
-      </div>
+    </div>
 
 
 
