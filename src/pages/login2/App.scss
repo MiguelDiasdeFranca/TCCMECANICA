@@ -18,8 +18,10 @@
     
 }
 
-.empresa{
+.empresa1{
     width: 40vh;
+    height: 40vh;
+    
 }
 
 .botao{
@@ -63,7 +65,7 @@ button{
     align-items: center;
     justify-content: center;
     margin-top: 40px;
-    gap: 10px;
+    
 }
 .texto{
     margin-bottom: 10px;
@@ -72,13 +74,33 @@ button{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
     margin-bottom: 10px; 
     margin-top: 10px;
-    gap: 7px;
+    margin-left: 150px;
+    
 }
 
 input{
     background-color: white;
+    width: 300px;
+    height: 30px;
+    
+}
+
+.inputao{
+gap: 10px;
+margin-left: -100px;
+
+}
+
+
+
+.login{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 20px;
+
+    
 }
 

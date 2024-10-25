@@ -13,7 +13,7 @@ export default function Login2() {
 
   return (
     <div className='p1'>
-      <img src={empresa} alt="" className='empresa' />
+      <img src={empresa} alt="" className='empresa1' />
       <h1 className='texto'>Seja Bem-Vindo(a) novamente</h1>
       
       <div className='imageml'>
@@ -30,7 +30,7 @@ export default function Login2() {
       </div>
       <div className='senha'>
         <p className='texto'>Mostrar senha</p>
-        <input 
+        <input className='inputao'
           type="checkbox" 
           checked={passwordVisible} 
           onChange={togglePasswordVisibility} 
@@ -38,12 +38,12 @@ export default function Login2() {
       </div>
       <div className='senha'>
       <p className='texto'>Lembrar senha</p>
-        <input type="checkbox" />
+        <input className='inputao' type="checkbox" />
       </div>
     
       
       <div className='botao'>
-        <button className='login'><strong>Fazer login</strong></button>
+        <button className='login'>Fazer login</button>
       </div>
     </div>
   );

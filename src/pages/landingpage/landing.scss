@@ -1,14 +1,17 @@
 *{box-sizing: border-box;
-background-color:   black;}
+}
 
+.App{
 
-.cabecalho{
-display: flex;
+ 
+
+  .cabecalho{
+    display: flex;
 flex-direction: row;
 height: 20vh;
 align-items: center;
 background-color: rgb(0, 0, 0);
-justify-content: space-around;
+justify-content:space-around;
 }
 
 .logoempresa{
@@ -25,7 +28,8 @@ p{
 
 button{
   color: black;
-  box-shadow: 2px,2px,2px,2px;
+  
+  
 }
 
 a{
@@ -35,15 +39,15 @@ a{
 
 
 .partebaixo{
-
+  
   padding: 5vh;
   background-color: black;
   display: flex;
   flex-direction: row;
   height: 70vh;
- background-image:url('http://localhost:3000/assets/images/image.svg');
- background-repeat: no-repeat;
- background-size: cover;
+  background-image:url('http://localhost:3000/assets/images/image.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 h1{
@@ -58,15 +62,15 @@ h2{
   height: 50vh;
   width: 90vh;
   margin-right: 3vh;
-
-
-
+  
+  
+  
 }
 
 .escrita{
-
-flex-direction: column;
-display: flex;
+  
+  flex-direction: column;
+  display: flex;
 justify-content:center ;
 height: 30vh;
 
@@ -80,32 +84,192 @@ height: 30vh;
   
   
 }
-
-.sobrenos{
-  width: 10vh;
-  height: 20vh;
-
+.sobrenos-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f0f0f0; /* cor de fundo neutra */
+  padding: 20px;
+  background-color: black;
 }
 
-.partesobrenos{
-  display: flex;
-  flex-direction: column;
-
- 
-
+.sobre-nos {
+  width: 40%; /* ajusta a largura da seção de texto */
+  color: #000;
+  background-color: black;
 }
 
-.parte1{
+.sobre-titulo {
   display: flex;
-  flex-direction: row;
   align-items: center;
-
+  margin-bottom: 20px;
 }
 
+.icone-sobre {
+  width: 20vh; /* tamanho ajustado do ícone */
+  margin-right: 15px;
+}
 
+.descricao p {
+  font-size: 3vh;
+  line-height: 1.5;
+  margin-left: 5vh;
+}
 
-.sobre{
-  width: 20vh;
-  height: 20vh;
+.imagem-mecanico {
+  width: 50%; /* ajusta a largura da imagem */
+}
+
+.capa1 {
+  width: 100%;
+  object-fit: cover; /* garante que a imagem cubra toda a área */
+}
+
+.wpp{
+  height: 7vh;
+  width: 7vh;
+}
+
+.face{
+  height: 7vh;
+  width: 7vh;
+}
+
+.instagram{
+  height: 7vh;
+  width: 7vh;
   
 }
+
+.qualquercoisa{
+  display: flex;
+  flex-direction: column;
+  gap: 10vh;
+}
+
+}
+
+
+.ctts{
+  margin-top: 10px;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.sv{
+  width: 2px;
+}
+
+.sv , .ctt , .ctts , .aplicativos{
+  flex-direction: row;
+  margin-left: 250px;
+}
+
+.ctt{
+  margin-left: -30px;
+}
+
+.aplicativos{
+  margin-left:235px;
+}
+.sv{
+  margin-left: 260px;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.services-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+
+  h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+
+    .service-item {
+      text-align: center;
+      img {
+        width: 30vh;
+        height: 30vh;
+        border-radius: 5px;
+        transition: transform 0.3s ease;
+       
+          
+          &:hover {
+            transform: scale(1.1);
+          }
+        
+
+
+      }
+
+      p {
+        margin-top: 0.5rem;
+        font-size: 1.2rem;
+
+      }
+    }
+  }
+
+  .contact-button {
+    background-color: #fff;
+    color: #000;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #ddd;
+    }
+  }
+
+  .social-icons {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+
+    a {
+      img {
+        width: 30px;
+        height: 30px;
+        filter: invert(1);
+      }
+    }
+  }
+
+}
+
+.loc{
+  background-color: gray;
+  height: 5vh;
+  width: 40vh;
+  text-align: center;
+  margin-top: 5vh;
+  
+}
+
+.maps{
+  height: 200vh;
+  background-color: white;
+}
+  
