@@ -1,20 +1,20 @@
 import con from "./conection.js";
 
 
-export async function inserirDiario(pessoa) {
+export async function inserirOrcamento(documento) {
     const comando = `
-        insert into tb_diario (dt_dia, ds_conteudo, id_usuario) 
-					        values (?, ?, ?)
+        insert into tb_diario (carro, placa, enderco, telefone, descricao, pecas, valor) 
+					        values (?, ?, ?, ?, ?, ?, ?)
     `;
     
-    let resposta = await con.query(comando, [pessoa.dia, pessoa.conteudo, pessoa.idUsuario])
+    let resposta = await con.query(comando, [documento.carro, documento.placa, documento.endereco, documento.telefone, documento.descricao, documento.pecas, documento.valor])
     let info = resposta[0];
     
     return info.insertId;
 }
 
 
-export async function consultarDiario(idUsuario) {
+export async function consultarOrcamento(idUsuario) {
     const comando = `
         select 
             id_diario    id,
