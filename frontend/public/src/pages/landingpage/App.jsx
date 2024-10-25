@@ -16,12 +16,7 @@ export default function App() {
         <a href="">home</a>
         <a href="">sobre nós</a>
         <a href="">F.A.Q</a>
-        <a href=""><button>faça seu agendamento</button></a>
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 3e9e8a9b70c466580f3ddefd2ef69963a7eafb2d
+        <a href="" className='agendamento'><button>faça seu agendamento</button></a>
       </div>
 
       <div className='partebaixo'>
@@ -39,7 +34,7 @@ export default function App() {
           <p>Novo aqui? faça seu cadastro</p>
 
         </div>
-<<<<<<< HEAD
+
       
       </div>
 
@@ -57,26 +52,9 @@ export default function App() {
         <img className='cara' src={imagemcrinha} alt = 'cara'/>
         </div>
     
-=======
-        <div className='imagem12'>
 
-
-          <img className='imagemcarro' src={logo1} alt="logo1" />
-          <h1>oiiiiiiii</h1>
-        </div>
-
+    
       </div>
-
-  
->>>>>>> 3e9e8a9b70c466580f3ddefd2ef69963a7eafb2d
-    </div>
-
-
-
-
-
-
-
   );
 }
 
