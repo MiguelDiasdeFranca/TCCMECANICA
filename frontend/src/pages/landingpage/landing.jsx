@@ -26,7 +26,7 @@ export default function App() {
         <a href="">home</a>
         <a href="">sobre nós</a>
         <a href="">F.A.Q</a>
-        <button>faça seu agendamento</button>
+        <button className='B'>faça seu agendamento</button>
 
 
 
@@ -37,8 +37,8 @@ export default function App() {
         <div className='escrita'>
 
 
-          <h1>Conosco Você Sempre </h1>
-          <h1 className='roda'>Roda Seguro</h1>
+          <h1>Conosco Você Sempre <h1 className='roda'>Roda Seguro</h1></h1>
+          
 
 
 
@@ -54,13 +54,13 @@ export default function App() {
 
       </div>
 
-      <div class="sobrenos-container">
-        <div class="sobre-nos">
-          <div class="sobre-titulo">
-            <img class="icone-sobre" src={imgsobrenos} alt="Ícone sobre nós" />
+      <div className="sobrenos-container">
+        <div className="sobre-nos">
+          <div className="sobre-titulo">
+            <img className="icone-sobre" src={imgsobrenos} alt="Ícone sobre nós" />
             <h1 className='titulao'>Sobre Nós</h1>
           </div>
-          <div class="descricao">
+          <div className="descricao">
             <p className='paragrafo'>
               <strong>Rodando Seguro</strong> foi fundada em 2000 por Laura Martins,
               uma apaixonada mecânica automotiva com uma visão clara: transformar
@@ -71,37 +71,37 @@ export default function App() {
           </div>
         </div>
 
-        <div class="imagem-mecanico">
-          <img class="capa1" src={imagemcrinha} alt="Mecânico trabalhando" />
+        <div className="imagem-mecanico">
+          <img className="capa1" src={imagemcrinha} alt="Mecânico trabalhando" />
         </div>
       </div>
 
       <div className='qualquercoisa'>
 
-        <div class="services-container">
+        <div className="services-container">
           <h1>Nossos Serviços</h1>
-          <div class="services-grid">
-            <div class="service-item">
+          <div className="services-grid">
+            <div className="service-item">
               <img src={alinhamento} alt="Alinhamento"/>
                 <p>Alinhamento</p>
             </div>
-            <div class="service-item">
+            <div className="service-item">
               <img src={funilaria} alt="Funilaria"/>
                 <p>Funilaria</p>
             </div>
-            <div class="service-item">
+            <div className="service-item">
               <img src={macanicageral} alt="Mecânica geral"/>
                 <p>Mecânica geral</p>
             </div>
-            <div class="service-item">
+            <div className="service-item">
               <img src={trocadeoleo} alt="Troca de óleo"/>
                 <p>Troca de óleo</p>
             </div>
           </div>
 
-          <button class="contact-button">Entre em contato</button>
+          <button className="contact-button">Entre em contato</button>
 
-          <div class="social-icons">
+          <div className="social-icons">
             <img className='wpp' src={wpp} alt="wpp"/>
             <img className='instagram' src={insta} alt="instagram"/>
             <img className='face'src={facebook} alt="face"/>
@@ -122,6 +122,40 @@ export default function App() {
       </div>
 
         </div>
+
+
+        <div className="feedbacks">
+    <h2>Feedbacks</h2>
+    <div className="feedback-cards">
+      <div className="feedback-card">
+        <p>
+          "Precisei de socorro à noite, estava sem bateria quando fui pegar o carro na rua saindo de um restaurante, o rapaz chegou super rápido, muito atencioso e resolveu ali na hora o problema."
+        </p>
+        <div className="feedback-user">
+          <span className="user-icon">🚗</span>
+          <span className="user-info">
+            <strong>Julia</strong> Parelheiros, Sp
+          </span>
+        </div>
+      </div>
+
+      <div className="feedback-card">
+        <p>
+          "O carro não pegava de jeito nenhum, era a bomba de gasolina, levaram o carro para a oficina deles e me entregaram o carro no dia seguinte antes do almoço ainda, ótimo serviço."
+        </p>
+        <div className="feedback-user">
+          <span className="user-icon">🚗</span>
+          <span className="user-info">
+            <strong>Richard</strong> Grajaú, Sp
+          </span>
+        </div>
+      </div>
+    </div>
+    <button className="send-feedback">Envie o seu!</button>
+  </div>
+
+
+
 
 
       </div>
