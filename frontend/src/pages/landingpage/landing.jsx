@@ -61,7 +61,7 @@ export default function App() {
             <h1 className='titulao'>Sobre Nós</h1>
           </div>
           <div class="descricao">
-            <p>
+            <p className='paragrafo'>
               <strong>Rodando Seguro</strong> foi fundada em 2000 por Laura Martins,
               uma apaixonada mecânica automotiva com uma visão clara: transformar
               a manutenção de veículos em uma experiência que garanta não apenas
@@ -108,16 +108,20 @@ export default function App() {
             </div>
           </div>
         </div>
+        <div className='mapao'>
 
       <div className='loc'>
-        <h1>onde é nossa oficina?</h1>
+        <h1>onde é nosssa oficina ?
+        </h1>
       </div>
 
       <div className='maps'>
+        <p className='nomeloc'></p>
   
-      b
+      <iframe className='mapinha' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.8777803353596!2d-46.71050582541721!3d-23.68032836597226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce502d2289a843%3A0x14406b17b30d0174!2sInstituto%20Social%20Nossa%20Senhora%20de%20F%C3%A1tima!5e0!3m2!1spt-BR!2sbr!4v1729903884982!5m2!1spt-BR!2sbr"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
 
+        </div>
 
 
       </div>
