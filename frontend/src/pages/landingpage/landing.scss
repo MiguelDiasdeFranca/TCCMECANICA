@@ -1,5 +1,5 @@
 *{box-sizing: border-box;
- 
+  margin: 0;
 }
 
 .App{
@@ -23,8 +23,51 @@ justify-content:space-around;
   width: 20vh;
 }
 
+.escrita{
+display: flex;
+flex-direction: column;
+gap: 4vh;
+justify-content: center;
+margin-left: 6vh;
+margin-top: 6vh;
+
+
+}
+
+.pato{
+  font-size:5vh ;
+  margin-left: 6vh;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  
+}
+
+.roda{
+ 
+  color:red;
+  margin-top: -3vh;
+  margin-left: 8vh;
+  font-size: 7vh;
+ 
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    
+  
+  
+ 
+     
+  
+}
+h3{
+  color: rgb(228, 215, 215);
+  width: 56vh;
+  margin-left: 7vh;
+}
 p{
-  color: white;
+font-size: 2.5vh;
+padding: 5vh;
+
 }
 
 .B{
@@ -36,6 +79,7 @@ p{
   width: 25vh;
   display: flex;
   align-items: center;
+  cursor: pointer;
  
 }
 
@@ -44,12 +88,28 @@ p{
   box-shadow: 2px,2px,2px,2px;
   border-radius: 20px;
   background-color: white;
- 
-  height: 5vh;
-  width: 25vh;
+  padding-top:1.2vh;
+  height: 7vh;
+  width: 35vh;
   display: flex;
   align-items: center;
+  margin-left: 5vh;
+  margin-left: 15vh;
+  cursor: pointer;
 
+
+h2{
+  color: black;
+  font-size: 3vh;
+}
+
+}
+
+
+
+
+.patinho{
+  margin-left: 6vh;
 }
 
 a{
@@ -98,12 +158,7 @@ height: 30vh;
 
 }
 
-.roda{
-  font-size: 3  vh;
-  color:red
-  
-  
-}
+
 .sobrenos-container {
   display: flex;
   justify-content: space-between;
@@ -122,6 +177,9 @@ height: 30vh;
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 00;
+  font-style: normal;
 
 }
 
@@ -136,6 +194,11 @@ height: 30vh;
   line-height: 1.8;
   margin-left: 5vh;
   margin-top: 10vh;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 7vh;
   
 }
 
@@ -247,6 +310,7 @@ body {
       p {
         margin-top: 0.5rem;
         font-size: 1.2rem;
+        
 
       }
     }
@@ -346,23 +410,34 @@ body {
     
 
     p {
-      font-size: 1rem;
-      margin-bottom: 15px;
+      font-size: 2vh;
       color: #000;
+      font-family: "Poppins", sans-serif;
+      font-weight: 500;
+      font-style: normal;
+      margin-bottom: -3vh;
+      margin-left: 2vh;
+      
     }
 
     .feedback-user {
       display: flex;
-      align-items: center;
-      gap: 10px;
+        
+      gap: 14px;
       font-size: 0.9rem;
+      text-align: center;
+      margin-left: 8vh;
+      padding-bottom: 5vh;
 
       .user-icon {
         font-size: 1.5rem;
+        text-align: center;
+        margin-bottom: 20vh;
       }
 
       .user-info {
         color: #e74c3c;
+        margin-bottom: 20vh;
 
         strong {
           display: block;
@@ -373,6 +448,8 @@ body {
   }
 
   .send-feedback {
+    height: 7vh;
+    width: 18vh;
     margin-top: 30px;
     padding: 10px 20px;
     background-color: #e74c3c;
@@ -385,6 +462,58 @@ body {
 
     &:hover {
       background-color: #c0392b;
+    }
+  }
+}
+
+
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  // Substitua pelo caminho da imagem
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  text-align: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6); // Overlay para escurecer a imagem de fundo
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .contact-button {
+      padding: 10px 20px;
+      background-color: #fff;
+      color: #e74c3c;
+      border: none;
+      border-radius: 20px;
+      font-size: 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s ease, color 0.3s ease;
+
+      &:hover {
+        background-color: #e74c3c;
+        color: #fff;
+      }
     }
   }
 }

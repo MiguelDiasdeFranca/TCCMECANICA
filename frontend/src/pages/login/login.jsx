@@ -32,11 +32,11 @@ export default function Login() {
 
         <div className='doisbotoes'>
           <div className='botao'>
-            <button>Criar conta</button>
+            <button className='criarcontinha'>Criar conta</button>
           </div>
           <Link to="/login2">
             <div className='botao'>
-              <button>Fazer login</button>
+              <button className='botaozera'>Fazer login</button>
             </div>
           </Link>
         </div>
