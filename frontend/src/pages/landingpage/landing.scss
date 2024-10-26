@@ -105,17 +105,21 @@ height: 30vh;
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+
 }
 
 .icone-sobre {
-  width: 20vh; /* tamanho ajustado do ícone */
+  width:20vh; /* tamanho ajustado do ícone */
   margin-right: 15px;
+ 
 }
 
 .descricao p {
   font-size: 4vh;
-  line-height: 1.5;
+  line-height: 1.8;
   margin-left: 5vh;
+  margin-top: 10vh;
+  
 }
 
 .imagem-mecanico {
