@@ -1,5 +1,4 @@
 import logo from './logo.png';
-
 import './landing.scss'
 import imgsobrenos from './imgsobrenos.svg'
 import imagemcrinha from './imagemcarinha.svg'
@@ -10,7 +9,8 @@ import funilaria from './funilaria.svg'
 import alinhamento from './alinhamento.svg'
 import macanicageral from './mecanicageral.svg'
 import trocadeoleo from './trocadeoleo.svg'
-import fundonegro from './fundonegro.svg'
+
+
 
 
 import { Link } from "react-router-dom";
@@ -25,19 +25,15 @@ export default function App() {
         <img src={logo} className="logoempresa" alt="logo" />
 
         <a href="">home</a>
-        <a href="">sobre nós</a>
-        <a href="">F.A.Q</a>
+        <a href="#sobrenos">sobre nós</a>
+        <a href="#nossosservicos">Nossos Serviços</a>
+        <a href="#localizacao">Onde nos localizamos?</a>
+        <a href="#feedback">Feedbacks</a>
         <button className='B'><h4>faça seu agendamento</h4></button>
-
-
-
-
       </div>
 
       <div className='partebaixo'>
         <div className='escrita'>
-
-
           <h1 className='pato'>Conosco Você Sempre </h1>
           <h1 className='roda'>Roda Seguro</h1>
 
@@ -59,7 +55,7 @@ export default function App() {
 
       <div className="sobrenos-container">
         <div className="sobre-nos">
-          <div className="sobre-titulo">
+          <div id='sobrenos' className="sobre-titulo">
             <img className="icone-sobre" src={imgsobrenos} alt="Ícone sobre nós" />
             <h1 className='titulao'>Sobre Nós</h1>
           </div>
@@ -79,7 +75,7 @@ export default function App() {
         </div>
       </div>
 
-      <div className='qualquercoisa'>
+      <div  id='nossosservicos'  className='qualquercoisa'>
 
         <div className="services-container">
           <h1>Nossos Serviços</h1>
@@ -118,7 +114,7 @@ export default function App() {
           </h1>
         </div>
 
-        <div className='maps'>
+        <div  id='localizacao'  className='maps'>
           <p className='nomeloc'></p>
 
           <iframe className='mapinha' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.8777803353596!2d-46.71050582541721!3d-23.68032836597226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce502d2289a843%3A0x14406b17b30d0174!2sInstituto%20Social%20Nossa%20Senhora%20de%20F%C3%A1tima!5e0!3m2!1spt-BR!2sbr!4v1729903884982!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -127,7 +123,7 @@ export default function App() {
       </div>
 
 
-      <div className="feedbacks">
+      <div id='feedback'  className="feedbacks">
         <h2>Feedbacks</h2>
         <div className="feedback-cards">
           <div className="feedback-card">
@@ -171,16 +167,7 @@ export default function App() {
 
 
       </div>
-
-
-
-
-
-   
-
-
-
-
   )
 
 }
+

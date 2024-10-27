@@ -4,10 +4,17 @@ import cadeado from './cadeado.jpg';
 import pessoa from './pessoa.png';
 import email from './email.png';
 import { Link } from "react-router-dom";
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 export default function Login() {
   return (
     <div className='login-inteiro'>
+      <Link to="/">
+      <div className='voltar'>
+  <i className="fas fa-arrow-left" style={{ fontSize: '30px', color: 'white' }}></i> 
+</div>
+</Link>
+  
       <div className='imagem'>
         <img src={imgempresa} alt="" className='empresa' />
       </div>

@@ -101,7 +101,17 @@ margin-left: -100px;
     color: rgb(0, 0, 0);
     font-weight: bold;
     font-size: 20px;
-
-    
 }
 
+
+.voltar {
+    position: absolute;
+    top: 20px; 
+    left: 20px; 
+    padding: 5px; 
+}
+
+.voltar i {
+    font-size: 30px; 
+    color: white; 
+}
