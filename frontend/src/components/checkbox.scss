@@ -1,0 +1,30 @@
+.checkbox-container {
+ margin-left: 10px;
+ margin-right: 20vh;
+}
+
+.checkbox-input {
+    display: none; 
+}
+
+.checkbox-label {
+    width: 40px;
+    height: 40px;
+    border: 2px solid red;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.checkbox-label i {
+    color: white; 
+    font-size: 20px;
+}
+
+.checkbox-label.checked {
+    background-color: green; 
+    border-color: green; 
+}
