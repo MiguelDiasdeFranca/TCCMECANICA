@@ -103,3 +103,17 @@ button{
  margin-bottom: 480px;
  margin-left: 10px;
 }
+
+
+
+.login-inteiro {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .fade-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  

@@ -9,53 +9,72 @@ import funilaria from './funilaria.svg'
 import alinhamento from './alinhamento.svg'
 import macanicageral from './mecanicageral.svg'
 import trocadeoleo from './trocadeoleo.svg'
-
-
-
-
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 
+
 export default function App() {
+ 
+  const handleScroll = (event, sectionId) => {
+    event.preventDefault();
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    } else {
+      console.warn(`Elemento com ID ${sectionId} não encontrado.`);
+    }
+  };
+
+  const handleScrollAnimation = () => {
+    const elements = document.querySelectorAll(".invisible");
+    elements.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.9) { 
+        el.classList.add("visible");
+      }
+    });
+  };
+
+  useEffect(() => {
+    
+    window.addEventListener("scroll", handleScrollAnimation);
+    handleScrollAnimation(); 
+
+    return () => window.removeEventListener("scroll", handleScrollAnimation); 
+  }, []);
+
   return (
     <div className="App">
-
       <div className='cabecalho'>
-
         <img src={logo} className="logoempresa" alt="logo" />
-
-        <a href="">home</a>
-        <a href="#sobrenos">sobre nós</a>
-        <a href="#nossosservicos">Nossos Serviços</a>
-        <a href="#localizacao">Onde nos localizamos?</a>
-        <a href="#feedback">Feedbacks</a>
-        <button className='B'><h4>faça seu agendamento</h4></button>
+        <a href="#inicio" onClick={(e) => handleScroll(e, 'inicio')}>Home</a>
+        <a href="#sobrenos" onClick={(e) => handleScroll(e, 'sobrenos')}>Sobre Nós</a>
+        <a href="#nossosservicos" onClick={(e) => handleScroll(e, 'nossosservicos')}>Nossos Serviços</a>
+        <a href="#localizacao" onClick={(e) => handleScroll(e, 'localizacao')}>Onde nos localizamos?</a>
+        <a href="#feedback" onClick={(e) => handleScroll(e, 'feedback')}>Feedbacks</a>
+        <button className='B'><h4>Faça seu agendamento</h4></button>
       </div>
 
-      <div className='partebaixo'>
+      <div id="inicio" className='partebaixo invisible'> {}
         <div className='escrita'>
-          <h1 className='pato'>Conosco Você Sempre </h1>
+          <h1 className='pato'>Conosco Você Sempre</h1>
           <h1 className='roda'>Roda Seguro</h1>
-
-
-
-
           <h3>A mais de vinte anos exercendo nossa profissão, para que você sempre rode seguro!</h3>
 
-          <Link to="/login2"> <button className='botao'><h2>Fazer Login</h2></button> </Link>
-
-          <Link to="/login">  <p className='patinho'>Novo aqui? <strong>faça seu cadastro</strong></p>
-
+          <Link to="/login2">
+            <button className='botao'><h2>Fazer Login</h2></button>
           </Link>
 
+          <Link to="/login">
+            <p className='patinho'>Novo aqui? <strong>faça seu cadastro</strong></p>
+          </Link>
         </div>
-
-
       </div>
 
-      <div className="sobrenos-container">
+      <div id="sobrenos" className="sobrenos-container invisible">
         <div className="sobre-nos">
-          <div id='sobrenos' className="sobre-titulo">
+          <div className="sobre-titulo">
             <img className="icone-sobre" src={imgsobrenos} alt="Ícone sobre nós" />
             <h1 className='titulao'>Sobre Nós</h1>
           </div>
@@ -69,14 +88,12 @@ export default function App() {
             </p>
           </div>
         </div>
-
         <div className="imagem-mecanico">
           <img className="capa1" src={imagemcrinha} alt="Mecânico trabalhando" />
         </div>
       </div>
 
-      <div  id='nossosservicos'  className='qualquercoisa'>
-
+      <div id="nossosservicos" className='qualquercoisa invisible'>
         <div className="services-container">
           <h1>Nossos Serviços</h1>
           <div className="services-grid">
@@ -97,9 +114,7 @@ export default function App() {
               <p>Troca de óleo</p>
             </div>
           </div>
-
           <button className="contact-button">Entre em contato</button>
-
           <div className="social-icons">
             <img className='wpp' src={wpp} alt="wpp" />
             <img className='instagram' src={insta} alt="instagram" />
@@ -107,67 +122,49 @@ export default function App() {
           </div>
         </div>
       </div>
-      <div className='mapao'>
 
+      <div id="localizacao" className='mapao invisible'>
         <div className='loc'>
-          <h1>onde é nosssa oficina ?
-          </h1>
+          <h1>Onde é nossa oficina?</h1>
         </div>
-
-        <div  id='localizacao'  className='maps'>
-          <p className='nomeloc'></p>
-
-          <iframe className='mapinha' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.8777803353596!2d-46.71050582541721!3d-23.68032836597226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce502d2289a843%3A0x14406b17b30d0174!2sInstituto%20Social%20Nossa%20Senhora%20de%20F%C3%A1tima!5e0!3m2!1spt-BR!2sbr!4v1729903884982!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div className='maps'>
+          <iframe
+            className='mapinha'
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.8777803353596!2d-46.71050582541721!3d-23.68032836597226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce502d2289a843%3A0x14406b17b30d0174!2sInstituto%20Social%20Nossa%20Senhora%20de%20F%C3%A1tima!5e0!3m2!1spt-BR!2sbr!4v1729903884982!5m2!1spt-BR!2sbr"
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
-
       </div>
 
-
-      <div id='feedback'  className="feedbacks">
+      <div id="feedback" className="feedbacks invisible">
         <h2>Feedbacks</h2>
         <div className="feedback-cards">
           <div className="feedback-card">
-            <p>
-              "como sou mulher não sei dirigir direito , e acabei batendo o carro, mas o serviço se seguro chegou bem rápido e cheguei segura em casa"
-            </p>
+            <p>"Como sou mulher não sei dirigir direito, e acabei batendo o carro, mas o serviço se seguro chegou bem rápido e cheguei segura em casa"</p>
             <div className="feedback-user">
-
-              <span className="user-info">
-                <strong>Juliana</strong> Parelheiros, SP
-              </span>
+              <span className="user-info"><strong>Juliana</strong> Parelheiros, SP</span>
               <span className="user-icon">🚗</span>
             </div>
           </div>
-
           <div className="feedback-card">
-            <p>
-              "O carro não pegava de jeito nenhum, era a bomba de gasolina, levaram o carro para a oficina deles e me entregaram o carro no dia seguinte antes do almoço ainda, ótimo serviço."
-            </p>
+            <p>"O carro não pegava de jeito nenhum, era a bomba de gasolina, levaram o carro para a oficina deles e me entregaram o carro no dia seguinte antes do almoço ainda, ótimo serviço."</p>
             <div className="feedback-user">
-              <span className="user-info">
-                <strong>Richard</strong> Grajaú, Sp
-              </span>
+              <span className="user-info"><strong>Richard</strong> Grajaú, SP</span>
               <span className="user-icon">🚗</span>
-
             </div>
           </div>
         </div>
         <button className="send-feedback">Envie o seu!</button>
-
-
-
       </div>
 
-      <section class="hero-section">
-    <div class="hero-content">
-      <h1>O lugar para os apaixonados por carros</h1>
-      <a href="#contato" class="contact-button">Entre em contato</a>
+      <section className="hero-section invisible">
+        <div className="hero-content">
+          <h1>O lugar para os apaixonados por carros</h1>
+          <a href="#contato" className="contact-button">Entre em contato</a>
+        </div>
+      </section>
     </div>
-  </section>
-
-
-      </div>
-  )
-
+  );
 }
-
