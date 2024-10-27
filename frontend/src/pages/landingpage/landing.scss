@@ -1,5 +1,8 @@
 *{box-sizing: border-box;
   margin: 0;
+  font-family: "Poppins", serif;
+  font-weight: 600;
+  font-style: normal;
 }
 
 .App{
@@ -583,11 +586,23 @@ body {
 
   .feedback-card {
     width: 90%;
+    transition: transform 0.3s ease;
+       
+          
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   .feedback-cards {
     flex-direction: column;
     align-items: center;
+    transition: transform 0.3s ease;
+       
+          
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   .hero-section {
@@ -633,4 +648,15 @@ body {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
   }
+}
+
+.invisible {
+  opacity: 0;
+  transform: translateY(20px); 
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
