@@ -14,56 +14,42 @@ export async function inserirAdm(pessoa) {
 }
 
 
-export async function consultarDiario(idUsuario) {
+export async function consultarAdm(idAdmin) {
     const comando = `
         select 
-            id_diario    id,
-            dt_dia            dia,
-            ds_conteudo       conteudo
-          from tb_diario
-          where id_usuario = ?
+            id_admin,    
+            nome,           
+            email,
+            senha       
+          from cadastroadm
+          where id_admin = ?
     `;
 
-    let resposta = await con.query(comando, [idUsuario]);
+    let resposta = await con.query(comando, [idAdmin]);
     let registros = resposta[0];
 
     return registros;
 }
 
-export async function consultarDiarioPorId(id) {
+export async function alterarAdm(id, adm) {
     const comando = `
-        select id_diario    id,
-        dt_dia              dia,
-        ds_conteudo         conteudo,
-        from tb_diario
-        where id_diario = ?
-    `;
-
-    let resposta = await con.query(comando, [id]);
-    let registros = resposta[0];
-
-    return registros;
-}
-
-export async function alterarDiario(id, pessoa) {
-    const comando = `
-         update tb_diario 
-                set dt_dia = ?,
-                ds_conteudo = ?
-            where id_diario = ?
+         update cadastroadm
+                email = ?,
+                senha  = ?
+            where id_admin = ?
     `
 
-    let resposta = await con.query(comando, [pessoa.dia, pessoa.conteudo, id])
+    let resposta = await con.query(comando, [adm.email, adm.senha, id])
     let info = resposta[0];
 
     return info.affectedRows;
 }
 
 
-export async function removerDiario(id) {
+export async function removerAdm(id) {
     const comando = `
-        delete from tb_diario 
-         where id_diario = ?
+        delete from cadastroadm 
+         where id_admin = ?
     `
 
     let resposta = await con.query(comando, [id]);

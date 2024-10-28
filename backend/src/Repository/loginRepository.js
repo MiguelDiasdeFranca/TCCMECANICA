@@ -1,72 +1,56 @@
 import con from "./conection.js";
 
 
-export async function inserirDiario(pessoa) {
+export async function inserirLogin(pessoa) {
     const comando = `
-        insert into tb_diario (dt_dia, ds_conteudo, id_usuario) 
-					        values (?, ?, ?)
+        insert into login (nm_usuario, senha) 
+					        values (?, ?)
     `;
     
-    let resposta = await con.query(comando, [pessoa.dia, pessoa.conteudo, pessoa.idUsuario])
+    let resposta = await con.query(comando, [pessoa.nmusuario, pessoa.senha])
     let info = resposta[0];
     
     return info.insertId;
 }
 
 
-export async function consultarDiario(idUsuario) {
+export async function consultarLogin(idAdm) {
     const comando = `
         select 
-            id_diario    id,
-            dt_dia            dia,
-            ds_conteudo       conteudo
-          from tb_diario
-          where id_usuario = ?
+        nm_usuario, 
+        senha
+          from login
+          where id_admin = ?
     `;
 
-    let resposta = await con.query(comando, [idUsuario]);
+    let resposta = await con.query(comando, [idAdm]);
     let registros = resposta[0];
 
     return registros;
 }
 
-export async function consultarDiarioPorId(id) {
+
+export async function alterarSenha(pessoa) {
     const comando = `
-        select id_diario    id,
-        dt_dia              dia,
-        ds_conteudo         conteudo,
-        from tb_diario
-        where id_diario = ?
-    `;
-
-    let resposta = await con.query(comando, [id]);
-    let registros = resposta[0];
-
-    return registros;
-}
-
-export async function alterarDiario(id, pessoa) {
-    const comando = `
-         update tb_diario 
-                set dt_dia = ?,
-                ds_conteudo = ?
-            where id_diario = ?
+         update login 
+                set senha = ?
+                where nm_usuario = ?
     `
 
-    let resposta = await con.query(comando, [pessoa.dia, pessoa.conteudo, id])
+    let resposta = await con.query(comando, [pessoa.senha])
     let info = resposta[0];
 
     return info.affectedRows;
 }
 
-
-export async function removerDiario(id) {
+export async function alterarNome(pessoa) {
     const comando = `
-        delete from tb_diario 
-         where id_diario = ?
+         update login 
+                set nm_usuario = ?
+                where senha = ?
     `
 
-    let resposta = await con.query(comando, [id]);
+    let resposta = await con.query(comando, [pessoa.nmusuario])
     let info = resposta[0];
 
     return info.affectedRows;

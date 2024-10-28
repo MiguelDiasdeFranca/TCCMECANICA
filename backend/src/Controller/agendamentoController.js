@@ -1,15 +1,15 @@
 import { autenticar } from '../utils/jwt.js';
 
-import * as db from '../repository/diarioRepository.js';
+import * as db from '../Repository/agendamentoRepository.js';
 
 import { Router } from "express";
 const endpoints = Router();
 
 
-endpoints.get('/diario', autenticar, async (req, resp) => {
+endpoints.get('/agendamento', autenticar, async (req, resp) => {
     try {
-        let idUsuario = req.user.id;
-        let registros = await db.consultarDiario(idUsuario);
+        let idAgendamento = req.user.id;
+        let registros = await db.consultarAgendamento(idAgendamento);
         resp.send(registros);
     }
     catch (err) {
@@ -19,27 +19,14 @@ endpoints.get('/diario', autenticar, async (req, resp) => {
     }
 })
 
-endpoints.get('/diario/:id', autenticar, async (req, resp) => {
+endpoints.post('/agendamento/', autenticar, async (req, resp) => {
     try {
-        let id = req.params.id;
-        let registros = await db.consultarDiarioPorId(id);
-        resp.send(registros[0]);
-    }
-    catch (err) {
-        resp.status(400).send({
-            erro: err.message
-        })
-    }
-})
+        let agendamento = req.body;
+        agendamento.idCliente = req.user.id;
 
-endpoints.post('/diario/', autenticar, async (req, resp) => {
-    try {
-        let pessoa = req.body;
-        pessoa.idUsuario = req.user.id;
+        console.log(agendamento)
 
-        console.log(pessoa)
-
-        let id = await db.inserirDiario(pessoa);
+        let id = await db.inserirAgendamento(agendamento);
 
         resp.send({
             novoId: id
@@ -53,17 +40,17 @@ endpoints.post('/diario/', autenticar, async (req, resp) => {
 })
 
 
-endpoints.put('/diario/:id', autenticar, async (req, resp) => {
+endpoints.put('/agendamento/:id', autenticar, async (req, resp) => {
     try {
         let id = req.params.id;
         let pessoa = req.body;
 
-        let linhasAfetadas = await db.alterarDiario(id, pessoa);
+        let linhasAfetadas = await db.alterarAgendamento(id, pessoa);
         if (linhasAfetadas >= 1) {
             resp.send();
         }
         else {
-            resp.status(404).send({ erro: 'Nenhum registro encontrado' })
+            resp.status(404).send({ erro: 'Este agendamento não foi encontrado' })
         }
     }
     catch (err) {
@@ -74,16 +61,16 @@ endpoints.put('/diario/:id', autenticar, async (req, resp) => {
 })
 
 
-endpoints.delete('/diario/:id', autenticar, async (req, resp) => {
+endpoints.delete('/agendamento/:id', autenticar, async (req, resp) => {
     try {
         let id = req.params.id;
 
-        let linhasAfetadas = await db.removerDiario(id);
+        let linhasAfetadas = await db.removerAgendamento(id);
         if (linhasAfetadas >= 1) {
             resp.send();
         }
         else {
-            resp.status(404).send({ erro: 'Nenhum registro encontrado' })
+            resp.status(404).send({ erro: 'Nenhum agendamento encontrado' })
         }
     }
     catch (err) {
@@ -92,10 +79,4 @@ endpoints.delete('/diario/:id', autenticar, async (req, resp) => {
         })
     }
 })
-
-
-
-
-
-
-export default endpoints;
+  export default endpoints;

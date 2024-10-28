@@ -1,15 +1,15 @@
 import { autenticar } from '../utils/jwt.js';
 
-import * as db from '../repository/diarioRepository.js';
+import * as db from '../Repository/clientesRepository.js';
 
 import { Router } from "express";
 const endpoints = Router();
 
 
-endpoints.get('/diario', autenticar, async (req, resp) => {
+endpoints.get('/clientes', autenticar, async (req, resp) => {
     try {
-        let idUsuario = req.user.id;
-        let registros = await db.consultarDiario(idUsuario);
+        let idCliente = req.user.id;
+        let registros = await db.consultarCliente(idCliente);
         resp.send(registros);
     }
     catch (err) {
@@ -19,27 +19,16 @@ endpoints.get('/diario', autenticar, async (req, resp) => {
     }
 })
 
-endpoints.get('/diario/:id', autenticar, async (req, resp) => {
+  
+
+endpoints.post('/cliente/', autenticar, async (req, resp) => {
     try {
-        let id = req.params.id;
-        let registros = await db.consultarDiarioPorId(id);
-        resp.send(registros[0]);
-    }
-    catch (err) {
-        resp.status(400).send({
-            erro: err.message
-        })
-    }
-})
+        let cliente = req.body;
+        cliente.idCliente = req.user.id;
 
-endpoints.post('/diario/', autenticar, async (req, resp) => {
-    try {
-        let pessoa = req.body;
-        pessoa.idUsuario = req.user.id;
+        console.log(cliente)
 
-        console.log(pessoa)
-
-        let id = await db.inserirDiario(pessoa);
+        let id = await db.inserirCliente(cliente);
 
         resp.send({
             novoId: id
@@ -53,17 +42,17 @@ endpoints.post('/diario/', autenticar, async (req, resp) => {
 })
 
 
-endpoints.put('/diario/:id', autenticar, async (req, resp) => {
+endpoints.put('/cliente/:id', autenticar, async (req, resp) => {
     try {
         let id = req.params.id;
-        let pessoa = req.body;
+        let cliente = req.body;
 
-        let linhasAfetadas = await db.alterarDiario(id, pessoa);
+        let linhasAfetadas = await db.alterarCliente(id, cliente);
         if (linhasAfetadas >= 1) {
             resp.send();
         }
         else {
-            resp.status(404).send({ erro: 'Nenhum registro encontrado' })
+            resp.status(404).send({ erro: 'Nenhum cliente encontrado' })
         }
     }
     catch (err) {
@@ -74,16 +63,16 @@ endpoints.put('/diario/:id', autenticar, async (req, resp) => {
 })
 
 
-endpoints.delete('/diario/:id', autenticar, async (req, resp) => {
+endpoints.delete('/cliente/:id', autenticar, async (req, resp) => {
     try {
         let id = req.params.id;
 
-        let linhasAfetadas = await db.removerDiario(id);
+        let linhasAfetadas = await db.removerCliente(id);
         if (linhasAfetadas >= 1) {
             resp.send();
         }
         else {
-            resp.status(404).send({ erro: 'Nenhum registro encontrado' })
+            resp.status(404).send({ erro: 'Nenhum cliente encontrado' })
         }
     }
     catch (err) {

@@ -1,6 +1,6 @@
 import { autenticar } from '../utils/jwt.js';
 
-import * as db from '../repository/diarioRepository.js';
+import * as db from '../Repository/loginRepository.js';
 
 import { Router } from "express";
 const endpoints = Router();

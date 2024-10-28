@@ -1,69 +1,56 @@
 import con from "./conection.js";
 
 
-export async function inserirDiario(pessoa) {
+export async function inserirAgendamento(agendamento) {
     const comando = `
-        insert into tb_diario (dt_dia, ds_conteudo, id_usuario) 
+        insert into agendamento (data_hora, descricao, id_cliente) 
 					        values (?, ?, ?)
     `;
     
-    let resposta = await con.query(comando, [pessoa.dia, pessoa.conteudo, pessoa.idUsuario])
+    let resposta = await con.query(comando, [agendamento.datahora, agendamento.descricao, agendamento.idCliente])
     let info = resposta[0];
     
     return info.insertId;
 }
 
 
-export async function consultarDiario(idUsuario) {
+export async function consultarAgendamento(idAgendamento) {
     const comando = `
-        select 
-            id_diario    id,
-            dt_dia            dia,
-            ds_conteudo       conteudo
-          from tb_diario
-          where id_usuario = ?
-    `;
+    select 
+    clientes.nome AS nome_cliente,
+    agendamento.descricao,
+    agendamento.data_hora
+from 
+    agendamento
+join 
+    clientes on agendamento.id_cliente = clientes.id_cliente;
+`;
 
-    let resposta = await con.query(comando, [idUsuario]);
+    let resposta = await con.query(comando, [idAgendamento]);
     let registros = resposta[0];
 
     return registros;
 }
 
-export async function consultarDiarioPorId(id) {
+export async function alterarAgendamento(id, pessoa) {
     const comando = `
-        select id_diario    id,
-        dt_dia              dia,
-        ds_conteudo         conteudo,
-        from tb_diario
-        where id_diario = ?
-    `;
-
-    let resposta = await con.query(comando, [id]);
-    let registros = resposta[0];
-
-    return registros;
-}
-
-export async function alterarDiario(id, pessoa) {
-    const comando = `
-         update tb_diario 
-                set dt_dia = ?,
-                ds_conteudo = ?
-            where id_diario = ?
+         update agendamento 
+                set data_hora = ?,
+                descricao = ?
+            where id_agendamento = ?
     `
 
-    let resposta = await con.query(comando, [pessoa.dia, pessoa.conteudo, id])
+    let resposta = await con.query(comando, [pessoa.datahora, pessoa.descricao, id])
     let info = resposta[0];
 
     return info.affectedRows;
 }
 
 
-export async function removerDiario(id) {
+export async function removerAgendamento(id) {
     const comando = `
-        delete from tb_diario 
-         where id_diario = ?
+        delete from agendamento 
+         where id_agendamento = ?
     `
 
     let resposta = await con.query(comando, [id]);

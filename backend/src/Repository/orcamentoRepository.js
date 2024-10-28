@@ -1,13 +1,13 @@
 import con from "./conection.js";
 
 
-export async function inserirOrcamento(documento) {
+export async function inserirOrcamento( orcamento) {
     const comando = `
         insert into tb_diario (carro, placa, enderco, telefone, descricao, pecas, valor) 
 					        values (?, ?, ?, ?, ?, ?, ?)
     `;
     
-    let resposta = await con.query(comando, [documento.carro, documento.placa, documento.endereco, documento.telefone, documento.descricao, documento.pecas, documento.valor])
+    let resposta = await con.query(comando, [orcamento.carro, orcamento.placa, orcamento.endereco, orcamento.telefone, orcamento.descricao, orcamento.pecas, orcamento.valor])
     let info = resposta[0];
     
     return info.insertId;
@@ -16,12 +16,20 @@ export async function inserirOrcamento(documento) {
 
 export async function consultarOrcamento(idUsuario) {
     const comando = `
-        select 
-            id_diario    id,
-            dt_dia            dia,
-            ds_conteudo       conteudo
-          from tb_diario
-          where id_usuario = ?
+    SELECT 
+    o.id_cliente,
+    c.nome,
+    o.carro,
+    o.placa,
+    o.enderco,
+    o.telefone,
+    o.descricao,
+    o.pecas,
+    o.valor
+FROM 
+    orcamento o
+INNER JOIN 
+    clientes c ON o.id_cliente = c.id_cliente;
     `;
 
     let resposta = await con.query(comando, [idUsuario]);
@@ -29,22 +37,6 @@ export async function consultarOrcamento(idUsuario) {
 
     return registros;
 }
-
-export async function consultarDiarioPorId(id) {
-    const comando = `
-        select id_diario    id,
-        dt_dia              dia,
-        ds_conteudo         conteudo,
-        from tb_diario
-        where id_diario = ?
-    `;
-
-    let resposta = await con.query(comando, [id]);
-    let registros = resposta[0];
-
-    return registros;
-}
-
 export async function alterarDiario(id, pessoa) {
     const comando = `
          update tb_diario 
