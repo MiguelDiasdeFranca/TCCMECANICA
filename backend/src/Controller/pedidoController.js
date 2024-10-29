@@ -1,15 +1,15 @@
 import { autenticar } from '../utils/jwt.js';
 
-import * as db from '../Repository/orcamentoRepository.js';
+import * as db from '../Repository/pedidoRepository.js';
 
 import { Router } from "express";
 const endpoints = Router();
 
 
-endpoints.get('/orcamento', autenticar, async (req, resp) => {
+endpoints.get('/pedido', autenticar, async (req, resp) => {
     try {
-        let idOrcamento = req.user.id;
-        let registros = await db.consultarOrcamento(idOrcamento);
+        let idPedido = req.user.id;
+        let registros = await db.consultarPedido(idPedido);
         resp.send(registros);
     }
     catch (err) {
@@ -20,15 +20,14 @@ endpoints.get('/orcamento', autenticar, async (req, resp) => {
 })
 
 
-
-endpoints.post('/orcamento/', autenticar, async (req, resp) => {
+endpoints.post('/pedido/', autenticar, async (req, resp) => {
     try {
-        let orcamento = req.body;
-        orcamento.idOrcamento = req.user.id;
+        let pedido = req.body;
+        pedido.idPedido = req.user.id;
 
-        console.log(orcamento)
+        console.log(pedido)
 
-        let id = await db.inserirOrcamento(orcamento);
+        let id = await db.inserirPedido(pedido);
 
         resp.send({
             novoId: id
@@ -42,17 +41,17 @@ endpoints.post('/orcamento/', autenticar, async (req, resp) => {
 })
 
 
-endpoints.put('/orcamento/:id', autenticar, async (req, resp) => {
+endpoints.put('/pedido/:id', autenticar, async (req, resp) => {
     try {
         let id = req.params.id;
-        let orcamento = req.body;
+        let pedido = req.body;
 
-        let linhasAfetadas = await db.alterarOrçamento(id, orcamento);
+        let linhasAfetadas = await db.alterarPedido(id, pedido);
         if (linhasAfetadas >= 1) {
             resp.send();
         }
         else {
-            resp.status(404).send({ erro: 'Nenhum Orçamento encontrado' })
+            resp.status(404).send({ erro: 'Nenhum pedido encontrado' })
         }
     }
     catch (err) {
@@ -63,16 +62,16 @@ endpoints.put('/orcamento/:id', autenticar, async (req, resp) => {
 })
 
 
-endpoints.delete('/orcamento/:id', autenticar, async (req, resp) => {
+endpoints.delete('/pedido/:id', autenticar, async (req, resp) => {
     try {
         let id = req.params.id;
 
-        let linhasAfetadas = await db.removerOrcamento(id);
+        let linhasAfetadas = await db.removerPedido(id);
         if (linhasAfetadas >= 1) {
             resp.send();
         }
         else {
-            resp.status(404).send({ erro: 'Nenhum Orçamento encontrado' })
+            resp.status(404).send({ erro: 'Nenhum pedido encontrado' })
         }
     }
     catch (err) {

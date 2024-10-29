@@ -14,7 +14,7 @@ export async function inserirOrcamento( orcamento) {
 }
 
 
-export async function consultarOrcamento(idUsuario) {
+export async function consultarOrcamento(idOrcamento) {
     const comando = `
     SELECT 
     o.id_cliente,
@@ -32,30 +32,35 @@ INNER JOIN
     clientes c ON o.id_cliente = c.id_cliente;
     `;
 
-    let resposta = await con.query(comando, [idUsuario]);
+    let resposta = await con.query(comando, [idOrcamento]);
     let registros = resposta[0];
 
     return registros;
 }
-export async function alterarDiario(id, pessoa) {
+export async function alterarOrçamento(id, orcamento) {
     const comando = `
-         update tb_diario 
-                set dt_dia = ?,
-                ds_conteudo = ?
-            where id_diario = ?
+         update orcamento 
+                set carro = ?, 
+                placa = ? ,
+                endereco = ?,
+                teleone = ?,
+                descricao = ?, 
+                pecas = ?,
+                valor = ?
+            where id_orcamento = ?
     `
 
-    let resposta = await con.query(comando, [pessoa.dia, pessoa.conteudo, id])
+    let resposta = await con.query(comando, [orcamento.carro, orcamento.placa, orcamento.endereco, orcamento.telefone, orcamento.descricao, orcamento.pecas, orcamento.valor,id])
     let info = resposta[0];
 
     return info.affectedRows;
 }
 
 
-export async function removerDiario(id) {
+export async function removerOrcamento(id) {
     const comando = `
-        delete from tb_diario 
-         where id_diario = ?
+        delete from orcamento 
+         where id_orcamento = ?
     `
 
     let resposta = await con.query(comando, [id]);

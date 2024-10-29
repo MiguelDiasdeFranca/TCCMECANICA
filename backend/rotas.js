@@ -3,7 +3,7 @@ import cadastroController from './controller/cadastroController.js'
 import clientesController from './controller/clientesController.js'
 import loginController from './controller/loginController.js'
 import orcamentoController from './controller/orcamentoController.js'
-import servicoController from './controller/servicoController.js'
+import pedidoController from './controller/pedidoController.js'
 
 export default function adicionarRotas(servidor) {
     servidor.use(agendamentoController);
@@ -11,5 +11,5 @@ export default function adicionarRotas(servidor) {
     servidor.use(clientesController);
     servidor.use(loginController);
     servidor.use(orcamentoController);
-    servidor.use(servicoController);
+    servidor.use(pedidoController);
 }
