@@ -2,6 +2,8 @@ import './adm.scss'
 import logo from './pessoa.png'
 import empresa from './imgempresa.png'
 import PedidoCard from '../../components/pedido';
+import CheckboxEstilizado from '../../components/checkbox';
+
 
 
 export default function Administrador({ userName }) { // Recebe o nome do usuário como prop
@@ -16,10 +18,11 @@ export default function Administrador({ userName }) { // Recebe o nome do usuár
                 <img src={logo} className='iconepes' alt="logo" />
                 <h1 className='titulo'>Configurações</h1>
                 
-                <button><a href="#pedidos">Pedidos em Andamento</a></button>
+                <button><a href="#pedidos">Visualizar pedidos</a></button>
                 <button><a href='#cliente'>Cadastrar Clientes</a></button>
+                <button>Orçamento</button>
+                <button>Cadastrar pedidos</button>
                 <button>Agendamento</button>
-                <button>Relatórios</button>
                 <div className='log'>
                     <button className='logout'><h1 className='log'><strong>Logout</strong></h1></button>
                 </div>
@@ -65,6 +68,39 @@ export default function Administrador({ userName }) { // Recebe o nome do usuár
                 <button className='botao'>Cadastrar</button>
             
       </div>
+
+      <div id='cliente' className='pedidos'>
+                <h1>Cadastrar clientes</h1>
+                <div className='clientes'>
+                 <div className='campos'>
+                   <input   className='digit'   type="text" placeholder='carro'/>
+                 </div>
+                 <div className='campos'>
+                    <input className='digit'   type="text" placeholder='Placa'/>
+                  </div>
+                  <div className='campos'>
+                    <input  className='digit'  type="text" placeholder='descrição'/>
+                   </div>
+                   <div className='campos'>
+                    <input  className='digit'   type="text" placeholder='entregue'/>
+                   </div>
+                 <div className='campos'>
+                     <input   className='digit'  type="text" placeholder='preco'/>
+                </div>
+                <p className="texto">Entregue? <CheckboxEstilizado id={`entregue`} /></p> 
+            </div>
+            <div className='desc'>
+                <div className='clientela'>
+                    <h1>Descrição do cliente</h1>
+                    <input className='d'type='text' placeholder='Digite aqui...'/>
+                </div>
+            </div>
+        
+                <button className='botao'>Cadastrar</button>
+            
+      </div>
+
+
 </div>
     );
 }

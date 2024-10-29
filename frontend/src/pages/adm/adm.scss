@@ -11,10 +11,11 @@
   color: #fff;
 
   .empresa-container {
-    padding: 20px;
-    text-align: center;
+    padding: 20px; 
     color: #fff;
-    margin-left: 270px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 400vh;
 
     .empresa-logo {
       width: 40vh;
@@ -170,10 +171,9 @@ border-radius: 20px;
 }
 
 .desc{
-  display: flex;
-  margin-left: 100vh;
-  margin-top: -70vh;
-  
+  display: flex;  
+  justify-content: end;
+  margin-bottom: 100px;
 }
 
 .clientela{
@@ -207,3 +207,223 @@ border-radius: 20px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
+* {
+  text-decoration: none;
+  box-sizing: border-box; /* Facilita o controle de espaçamentos e tamanhos */
+}
+
+.config {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #000;
+  color: #fff;
+  padding: 20px; 
+  .empresa-container {
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    margin: 20px 0;
+
+    .empresa-logo {
+      width: 100%; 
+      max-width: 40vh; 
+      margin-bottom: 10px;
+    }
+
+    .texto {
+      font-size: 1.5rem;
+      text-align: center;
+    }
+  }
+
+  .botoes {
+    margin-right: 10vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: #f0f0f0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+
+    .iconepes {
+      width: 80px;
+      margin-bottom: 20px;
+    }
+
+    .titulo {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #000;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      background-color: #d3d3d3;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      color: #000;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #ffffff;
+      }
+    }
+
+    .log {
+      margin-top: auto;
+
+      .logout {
+        background-color: #000;
+        color: #fff;
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        margin-top: 120px;
+
+        h1 {
+          font-weight: bold;
+          margin: 0;
+        }
+
+        &:hover {
+          background-color: #333;
+        }
+      }
+    }
+  }
+
+  .pedidos {
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    margin-top: 450px;
+    margin-left: 270px;
+
+    h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+a {
+  color: #000;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap; /* Permite que os cards quebrem linha em telas menores */
+  justify-content: center;
+  margin-top: 22vh;
+  gap: 30px;
+}
+
+.p {
+  padding-top: 3%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  width: 50vh;
+  background-color: grey;
+}
+
+.text, .tex, .texto {
+  font-size: 1rem;
+  color: #000;
+  text-align: center; /* Centraliza o texto */
+}
+
+.campos {
+  margin-top: 30px;
+}
+
+.digit {
+  border: white;
+  background-color: #D9D9D9;
+}
+
+.clientes {
+  margin: 0 auto;
+  margin-top: 40px;
+  padding: 40px;
+  background-color: #f0f0f0;
+  border-radius: 20px;
+  max-width: 800px; 
+  text-align: center; 
+  
+}
+
+.clientela {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid white;
+  padding: 50px;
+  border-radius: 20px;
+  background-color: #fff;
+  color: #000;
+  margin-top: 19px;
+}
+
+.d {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #D9D9D9;
+}
+
+.botao {
+  color: #000;
+  margin: 20px auto;
+  padding: 10px 50px;
+}
+.empresa-logo , .txt{
+  margin-left: 21vh;
+}
+
+
+@media (max-width: 768px) {
+  .botoes {
+    position: relative;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .empresa-container, .pedidos {
+    margin: 0;
+    padding: 10px;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .clientes {
+    width: 100%;
+    margin: 20px 0;
+  }
+}
+
