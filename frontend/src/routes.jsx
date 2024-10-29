@@ -5,6 +5,7 @@ import Login2 from './pages/login2/App.jsx';
 import Login from './pages/login/login.jsx'
 
 
+
 export default function Navigation() {
   return (
     <Router>
@@ -12,6 +13,7 @@ export default function Navigation() {
         <Route path='/login' element ={<Login/>}/>
         <Route path="/" element={<Landingpage />} />
         <Route path="/login2" element={<Login2 />} />
+
       </Routes>
     </Router>
   );

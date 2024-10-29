@@ -11,7 +11,7 @@ import macanicageral from './mecanicageral.svg'
 import trocadeoleo from './trocadeoleo.svg'
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import Feedback from '../../components/feedback/Feedback.jsx';
 
 
 export default function App() {
@@ -141,30 +141,21 @@ export default function App() {
       <div id="feedback" className="feedbacks invisible">
         <h2>Feedbacks</h2>
         <div className="feedback-cards">
-          <div className="feedback-card">
-            <p>"Como sou mulher não sei dirigir direito, e acabei batendo o carro, mas o serviço se seguro chegou bem rápido e cheguei segura em casa"</p>
-            <div className="feedback-user">
-              <span className="user-info"><strong>Juliana</strong> Parelheiros, SP</span>
-              <span className="user-icon">🚗</span>
-            </div>
-          </div>
-          <div className="feedback-card">
-            <p>"O carro não pegava de jeito nenhum, era a bomba de gasolina, levaram o carro para a oficina deles e me entregaram o carro no dia seguinte antes do almoço ainda, ótimo serviço."</p>
-            <div className="feedback-user">
-              <span className="user-info"><strong>Richard</strong> Grajaú, SP</span>
-              <span className="user-icon">🚗</span>
-            </div>
-          </div>
+          <Feedback nome="Juliana" desc="Meu namorado me trai com a linda da prima do amigo dele adoro ser corna rs" local="Parelheiros,SP"/>
+
+         
+           <Feedback nome = "Daniel" desc="Minha namorada me traiu com o meu amigo Nicolas Voltareli, mas o seguro é bom" local="serra pelada"/>
+          
         </div>
         <button className="send-feedback">Envie o seu!</button>
       </div>
 
-      <section className="hero-section invisible">
-        <div className="hero-content">
-          <h1>O lugar para os apaixonados por carros</h1>
-          <a href="#contato" className="contact-button">Entre em contato</a>
-        </div>
-      </section>
+      <div className="hero-section">
+      <div className="content">
+        <h1>O lugar para os apaixonados por carros</h1>
+        <button className="contact-button">Entre em contato</button>
+      </div>
+    </div>
     </div>
   );
 }

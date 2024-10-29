@@ -9,24 +9,47 @@
 
 
 
-  .cabecalho{
+  .cabecalho {
     display: flex;
-flex-direction: row;
-height: 20vh;
-align-items: center;
-background-color: rgb(24, 24, 24);
-justify-content:space-around;
-display: flex;
-flex-direction: row;
-height: 20vh;
-align-items: center;
-justify-content: space-around;
-position: fixed;
-top: 0;
-width: 100%; 
-z-index: 1000; 
+    flex-direction: row;
+    justify-content: center; 
+    align-items: center;
+    height: 15vh;
+    padding: 0 2rem; 
+    background-color: rgb(24, 24, 24);
+    position: fixed;
+    top: 0;
+    width: 100%; 
+    z-index: 1000;
+    gap: 3vh;
+    margin-right: 20vh;
+
 }
 
+.cabecalho img {
+    max-height: 20%; 
+    justify-content: start;
+    position: fixed;
+    margin-right: 129vh;
+  
+   
+}
+
+.menu {
+    display: flex;
+    gap: 1.5rem; 
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #ccc;
+}
 .logoempresa{
 
   height: 100%;
@@ -190,7 +213,7 @@ height: 30vh;
 .sobre-titulo {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 4vh;
   font-family: "Poppins", sans-serif;
   font-weight: 00;
   font-style: normal;
@@ -204,25 +227,25 @@ height: 30vh;
 }
 
 .descricao p {
-  font-size: 4vh;
+  font-size: 2vh;
   line-height: 1.8;
   margin-left: 5vh;
-  margin-top: 10vh;
   color: white;
   font-family: "Poppins", sans-serif;
-  font-weight: 500;
+  font-weight: 300;
   font-style: normal;
   line-height: 7vh;
+  width: 500px;
   
 }
 
 .imagem-mecanico {
-  width: 50%; /* ajusta a largura da imagem */
+  width: 50%;
 }
 
 .capa1 {
   width: 100%;
-  object-fit: cover; /* garante que a imagem cubra toda a área */
+  object-fit: cover; 
 }
 
 .wpp{
@@ -609,6 +632,7 @@ body {
     height: auto;
     padding: 2rem;
     text-align: center;
+    
   }
 
   .hero-content h1 {
@@ -660,3 +684,59 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('http://localhost:3000/assets/images/fundonegro.svg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+  .content {
+    max-width: 600px;
+    padding: 2rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-button {
+    background-color: white;
+    color: #ff0000; // Altere conforme o tom de vermelho desejado
+    
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    
+  
+
+    &:hover {
+      background-color: #ff4b4b;
+      color: white;
+    }
+  }
+
+  .contact-button {
+    background-color: white;
+    color: #ff0000;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer; 
+    padding: 0.5rem 1.5rem;
+    text-align: center;
+  }
+  .contact-button {
+    display: inline-block;
+     }
+    
