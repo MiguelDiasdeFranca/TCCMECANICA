@@ -114,7 +114,12 @@ export default function App() {
               <p>Troca de óleo</p>
             </div>
           </div>
-          <button className="contact-button">Entre em contato</button>
+          <button className="contact-button">
+  <a href="https://wa.me/5511937721364" target="_blank" rel="noopener noreferrer">
+    Entre em contato
+  </a>
+</button>
+
           <div className="social-icons">
             <img className='wpp' src={wpp} alt="wpp" />
             <img className='instagram' src={insta} alt="instagram" />
@@ -141,19 +146,20 @@ export default function App() {
       <div id="feedback" className="feedbacks invisible">
         <h2>Feedbacks</h2>
         <div className="feedback-cards">
-          <Feedback nome="Juliana" desc="Meu namorado me trai com a linda da prima do amigo dele adoro ser corna rs" local="Parelheiros,SP"/>
+          <Feedback nome="Juliana" desc="Adorei o serviço, extremamente rápido e eficiente" local="Parelheiros,SP"/>
 
          
-           <Feedback nome = "Daniel" desc="Minha namorada me traiu com o meu amigo Nicolas Voltareli, mas o seguro é bom" local="serra pelada"/>
+           <Feedback nome = "Daniel" desc="Bati o carro na estrada e o seguro chegou assim que o acionei" local="Casa Grande, SP"/>
           
         </div>
-        <button className="send-feedback">Envie o seu!</button>
+        <button className="send-feedback">
+        <a href="https://wa.me/5511937721364" target="_blank" rel="noopener noreferrer">Envie o seu!</a></button>
       </div>
 
       <div className="hero-section">
       <div className="content">
         <h1>O lugar para os apaixonados por carros</h1>
-        <button className="contact-button">Entre em contato</button>
+        
       </div>
     </div>
     </div>

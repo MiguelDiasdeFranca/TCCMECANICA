@@ -14,7 +14,7 @@ const CheckboxEstilizado = ({ id }) => { // Adicionando uma prop 'id'
         <div className="checkbox-container">
             <input
                 type="checkbox"
-                id={id} // Usando o ID recebido como prop
+                id={id}
                 checked={checked}
                 onChange={handleCheckboxChange}
                 className="checkbox-input"

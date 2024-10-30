@@ -49,9 +49,6 @@ button{
     justify-content: center;
     align-items: center;
 }
-.texto{
-    color: white;
-}
 .icons{
     width: 4vh;
     gap: 10px;
@@ -67,9 +64,7 @@ button{
     margin-top: 40px;
     
 }
-.texto{
-    margin-bottom: 10px;
-}
+
 .senha {
     display: flex;
     align-items: center;
@@ -129,3 +124,7 @@ margin-left: -100px;
     transform: translateY(0);
   }
   
+  
+.txt{
+    margin-left: 10vh;
+}
