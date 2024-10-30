@@ -1,4 +1,4 @@
-import { autenticar } from '../utils/jwt.js';
+import { autenticar } from '../../utils/jwt.js';
 
 import * as db from '../Repository/cadastroRepository.js';
 

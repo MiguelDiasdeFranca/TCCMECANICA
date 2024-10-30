@@ -4,9 +4,8 @@ import * as db from '../Repository/loginRepository.js';
 import axios from 'axios';
 import nodemailer from 'nodemailer'
 import  {Router} from "express";
-import { autenticar, gerarToken } from '../utils/jwt.js';
+import { gerarToken } from '../../utils/jwt.js';
 
-import { Router } from "express";
 const endpoints = Router();
 
 endpoints.post('/entrar/',  async (req,resp) =>{

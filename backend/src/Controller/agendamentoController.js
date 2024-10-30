@@ -1,4 +1,4 @@
-import { autenticar } from '../utils/jwt.js';
+import { autenticar } from '../../utils/jwt.js';
 
 import * as db from '../Repository/agendamentoRepository.js';
 
@@ -78,5 +78,6 @@ endpoints.delete('/agendamento/:id', autenticar, async (req, resp) => {
             erro: err.message
         })
     }
-})
+});
+
   export default endpoints;
