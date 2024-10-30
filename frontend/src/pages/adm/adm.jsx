@@ -70,7 +70,7 @@ export default function Administrador({ userName }) { // Recebe o nome do usuár
       </div>
 
       <div id='cliente' className='pedidos'>
-                <h1>Cadastrar clientes</h1>
+                <h1>Pedidos</h1>
                 <div className='clientes'>
                  <div className='campos'>
                    <input   className='digit'   type="text" placeholder='carro'/>
@@ -88,7 +88,9 @@ export default function Administrador({ userName }) { // Recebe o nome do usuár
                      <input   className='digit'  type="text" placeholder='preco'/>
                 </div>
                 <p className="texto">Entregue? <CheckboxEstilizado id={`entregue`} /></p> 
+                <p className="texto">Pago? <CheckboxEstilizado id={`pago`} /></p> 
             </div>
+            
             <div className='desc'>
                 <div className='clientela'>
                     <h1>Descrição do cliente</h1>

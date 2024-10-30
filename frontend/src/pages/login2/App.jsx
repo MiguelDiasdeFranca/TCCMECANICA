@@ -23,17 +23,19 @@ export default function Login2() {
   return (
     <div className={`p1 ${isVisible ? 'fade-in' : ''}`}>
       <Link to="/">
+
+
         <div className="voltar">
           <i className="fas fa-arrow-left" style={{ fontSize: '30px', color: 'white' }}></i> 
         </div>
       </Link>
 
       <img src={empresa} alt="Logo da empresa" className="empresa1" />
-      <h1 className="texto">Seja Bem-Vindo(a) novamente</h1>
+      <h1 className="txto">Seja Bem-Vindo(a) novamente</h1>
 
       <div className="imageml">
         <img src={pessoa} alt="Ícone de usuário" className="icons" />
-        <input type="text" placeholder="Nome" />
+        <input type="txto" placeholder="Nome" />
       </div> 
 
       <div className="imageml">
@@ -45,7 +47,7 @@ export default function Login2() {
       </div>
 
       <div className="senha">
-        <p className="texto">Mostrar senha</p>
+        <p className="txto">Mostrar senha</p>
         <input 
           className="inputao"
           type="checkbox" 
@@ -55,7 +57,7 @@ export default function Login2() {
       </div>
 
       <div className="senha">
-        <p className="texto">Lembrar senha</p>
+        <p className="txto">Lembrar senha</p>
         <input className="inputao" type="checkbox" />
       </div>
 
