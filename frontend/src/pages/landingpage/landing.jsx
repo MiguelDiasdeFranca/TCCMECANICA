@@ -1,21 +1,27 @@
 import logo from './logo.png';
-import './landing.scss'
-import imgsobrenos from './imgsobrenos.svg'
-import imagemcrinha from './imagemcarinha.svg'
-import wpp from './wpp.png'
-import insta from './instagram.png'
-import facebook from './facebook.png'
-import funilaria from './funilaria.svg'
-import alinhamento from './alinhamento.svg'
-import macanicageral from './mecanicageral.svg'
-import trocadeoleo from './trocadeoleo.svg'
+import './landing.scss';
+import imgsobrenos from './imgsobrenos.svg';
+import imagemcrinha from './imagemcarinha.svg';
+import wpp from './wpp.png';
+import insta from './instagram.png';
+import facebook from './facebook.png';
+import funilaria from './funilaria.svg';
+import alinhamento from './alinhamento.svg';
+import mecanicageral from './mecanicageral.svg';
+import trocadeoleo from './trocadeoleo.svg';
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Feedback from '../../components/feedback/Feedback.jsx';
-
+import Carrossel from '../../components/carrosel/carrosel.jsx';
 
 export default function App() {
- 
+  const items = [
+    { image: alinhamento, legend: 'Alinhamento' },
+    { image: funilaria, legend: 'Funilaria' },
+    { image: mecanicageral, legend: 'Mecânica Geral' },
+    { image: trocadeoleo, legend: 'Troca de Óleo' },
+  ];
+
   const handleScroll = (event, sectionId) => {
     event.preventDefault();
     const section = document.getElementById(sectionId);
@@ -30,18 +36,17 @@ export default function App() {
     const elements = document.querySelectorAll(".invisible");
     elements.forEach((el) => {
       const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight * 0.9) { 
+      if (rect.top < window.innerHeight * 0.9) {
         el.classList.add("visible");
       }
     });
   };
 
   useEffect(() => {
-    
     window.addEventListener("scroll", handleScrollAnimation);
-    handleScrollAnimation(); 
+    handleScrollAnimation();
 
-    return () => window.removeEventListener("scroll", handleScrollAnimation); 
+    return () => window.removeEventListener("scroll", handleScrollAnimation);
   }, []);
 
   return (
@@ -56,7 +61,7 @@ export default function App() {
         <button className='B'><h4>Faça seu agendamento</h4></button>
       </div>
 
-      <div id="inicio" className='partebaixo invisible'> {}
+      <div id="inicio" className='partebaixo invisible'>
         <div className='escrita'>
           <h1 className='pato'>Conosco Você Sempre</h1>
           <h1 className='roda'>Roda Seguro</h1>
@@ -96,34 +101,22 @@ export default function App() {
       <div id="nossosservicos" className='qualquercoisa invisible'>
         <div className="services-container">
           <h1>Nossos Serviços</h1>
-          <div className="services-grid">
-            <div className="service-item">
-              <img src={alinhamento} alt="Alinhamento" />
-              <p>Alinhamento</p>
-            </div>
-            <div className="service-item">
-              <img src={funilaria} alt="Funilaria" />
-              <p>Funilaria</p>
-            </div>
-            <div className="service-item">
-              <img src={macanicageral} alt="Mecânica geral" />
-              <p>Mecânica geral</p>
-            </div>
-            <div className="service-item">
-              <img src={trocadeoleo} alt="Troca de óleo" />
-              <p>Troca de óleo</p>
-            </div>
+          <div className="App">
+            <Carrossel items={items} />
           </div>
           <button className="contact-button">
-  <a href="https://wa.me/5511937721364" target="_blank" rel="noopener noreferrer">
-    Entre em contato
-  </a>
-</button>
+            <a href="https://wa.me/5511937721364" target="_blank" rel="noopener noreferrer">
+              Entre em contato
+            </a>
+          </button>
 
           <div className="social-icons">
-            <img className='wpp' src={wpp} alt="wpp" />
-            <img className='instagram' src={insta} alt="instagram" />
-            <img className='face' src={facebook} alt="face" />
+            <a href="https://www.instagram.com/m.diassh" target="_blank" rel="noopener noreferrer">
+              <img className='instagram' src={insta} alt="Instagram" />
+            </a>
+            <a href="https://www.facebook.com/MiguelDiasdeFranca" target="_blank" rel="noopener noreferrer">
+              <img className='face' src={facebook} alt="Facebook" />
+            </a>
           </div>
         </div>
       </div>
@@ -147,21 +140,23 @@ export default function App() {
         <h2>Feedbacks</h2>
         <div className="feedback-cards">
           <Feedback nome="Juliana" desc="Adorei o serviço, extremamente rápido e eficiente" local="Parelheiros,SP"/>
-
-         
-           <Feedback nome = "Daniel" desc="Bati o carro na estrada e o seguro chegou assim que o acionei" local="Casa Grande, SP"/>
-          
+          <Feedback nome="Daniel" desc="Bati o carro na estrada e o seguro chegou assim que o acionei" local="Casa Grande, SP"/>
         </div>
         <button className="send-feedback">
-        <a href="https://wa.me/5511937721364" target="_blank" rel="noopener noreferrer">Envie o seu!</a></button>
+          <a href="https://wa.me/5511937721364" target="_blank" rel="noopener noreferrer">Envie o seu!</a>
+        </button>
       </div>
 
       <div className="hero-section">
-      <div className="content">
-        <h1>O lugar para os apaixonados por carros</h1>
-        
+        <div className="content">
+          <h1>O lugar para os apaixonados por carros</h1>
+        </div>
       </div>
-    </div>
+
+      {/* Botão para voltar ao topo */}
+      <button className="back-to-top" onClick={(e) => handleScroll(e, 'inicio')}>
+        <span>&#8593;</span> {/* Seta para cima */}
+      </button>
     </div>
   );
 }

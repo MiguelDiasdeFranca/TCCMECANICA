@@ -1,0 +1,68 @@
+.carrossel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px; /* Aumentado o tamanho total */
+    height: 350px; /* Definindo uma altura */
+    margin: auto;
+  }
+  
+  .carrossel-content {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%; /* Para ocupar toda a altura */
+  }
+  
+  .image-wrapper {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    animation: fadeInScale 0.6s ease;
+  }
+  
+  @keyframes fadeInScale {
+    0% {
+      opacity: 0;
+      transform: scale(0.9); /* Começa levemente menor */
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1); /* Volta ao tamanho original */
+    }
+  }
+  
+  .carrossel-image {
+    width: 100%;
+    height: 100%; /* Agora ocupa toda a altura definida */
+    object-fit: cover; /* Ajusta a imagem para cobrir o contêiner */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .prev-btn, .next-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .prev-btn {
+    left: -2rem;
+  }
+  
+  .next-btn {
+    right: -2rem;
+  }
+  
+  .prev-btn:hover, .next-btn:hover {
+    color: #666;
+  }
+  
