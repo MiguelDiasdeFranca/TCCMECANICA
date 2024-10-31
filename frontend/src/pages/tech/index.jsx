@@ -10,7 +10,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className='geral'>
       {/* Primeira parte: Formulário de contato */}
       <div className="container">
         <div className="left-side">
