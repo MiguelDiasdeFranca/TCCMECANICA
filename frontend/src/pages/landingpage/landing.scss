@@ -368,22 +368,27 @@ body {
       background-color: #ddd;
     }
   }
-
   .social-icons {
-    margin-top: 2rem;
-    display: flex;
-    gap: 1rem;
-    
-
-    a {
-      img {
-        width: 30px;
-        height: 30px;
-        filter: invert(1);
-        
-    }
-      }
-    }
+    display: flex; /* Alinha os ícones horizontalmente */
+    gap: 10px; /* Espaço entre os ícones */
+    margin-top: 4vh;
+  }
+  
+  .social-icons a {
+    display: inline-block; /* Permite estilizar o link como um botão */
+    text-decoration: none; /* Remove o sublinhado */
+  }
+  
+  .social-icons img {
+    width: 40px; /* Ajuste o tamanho conforme necessário */
+    height: auto; /* Mantém a proporção */
+    transition: transform 0.3s; /* Animação ao passar o mouse */
+  }
+  
+  .social-icons img:hover {
+    transform: scale(1.1); /* Aumenta o ícone quando o mouse passa por cima */
+  }
+  
   }
 
   
@@ -739,6 +744,7 @@ body {
   }
   .contact-button {
     display: inline-block;
+    margin-top: 10vh;
      }
     
      .feedback {
@@ -804,4 +810,35 @@ body {
         width: 100%;
       }
     }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 20px; 
+      right: 20px; 
+      background: linear-gradient(145deg, #ff4d4d, #ff1a1a); 
+      color: rgb(0, 0, 0); 
+      border: none;
+      border-radius: 50%; 
+      width: 0px; 
+      height: 50px; 
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+      font-size: 28px; 
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+      transition: background 0.3s ease, transform 0.3s ease; 
+      
+     
+      &:hover {
+        transform: translateY(-4px); 
+        background: linear-gradient(145deg, #ff1a1a, #ff4d4d);
+      }
+      
+      
+      &:focus {
+        outline: none; 
+      }
+    }
+    
     

@@ -1,0 +1,358 @@
+
+.App {
+    text-align: center;
+  }
+  
+  .App-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+  
+  
+  
+    .geral{
+      background-color: #b8dbe7;
+    }
+    
+
+  
+  
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #ffff;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #E8E8E8;
+    border: 1px solid #E8E8E8;
+    border-radius: 8px;
+  }
+  
+  .left-side {
+    width: 50%;
+    padding: 30px;
+    background-color: #E8E8E8;
+  }
+  
+  .left-side h2 {
+    margin-bottom: 20px;
+    color: #3B3B98;
+  }
+  
+  .left-side p {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .logo img {
+    width: 80px;
+    margin-bottom: 30px;
+  }
+  
+  .right-side {
+    width: 50%;
+    padding: 30px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  form label {
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  form input,
+  form select,
+  form textarea {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ffff;
+    border-radius: 5px;
+    width: 100%;
+  }
+  
+  button {
+    padding: 12px;
+    background-color: #4c6ef5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #3b5bdb;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #E7E7E7;
+  }
+  
+  .container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  h2 {
+    color: #3B3B98;
+    margin-bottom: 20px;
+  }
+  
+  .team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .team-item {
+    background-color:#aaaaaa;
+    color: white;
+    font-size: 16px;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 80px;
+    position: relative;
+  }
+  
+  .large {
+    width: 420px;
+  }
+  
+  .checkmark {
+    color: #00bfff;
+    font-size: 20px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  
+  .container {
+    font-family: Arial, sans-serif;
+    background-color:E7E7E7;
+    padding: 20px;
+    text-align: center;
+    height: 100vh;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px;
+  }
+  
+  .logo {
+    width: 50px;
+  }
+  
+  .title {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .boxContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .box {
+    background-color: #b5b5b5;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 0 10px;
+    width: 300px;
+    text-align: left;
+    position: relative;
+  }
+  
+  .check {
+    color: #00a8e1;
+    font-size: 24px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  
+  .reactLogo {
+    width: 30px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
+  
+  .diferenciais-container {
+    text-align: center;
+    background-color:E7E7E7;
+    padding: 200px;
+  
+    .header {
+      display: flex;
+      justify-content: flex-start;
+      padding: 10px;
+      border-bottom: 2px solid #0055ff;
+    }
+  
+    .logo {
+      width: 50px;
+      margin-left: 20px;
+    }
+  
+    .title {
+      margin-top: 70px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  
+    .box-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 60px;
+      gap: 40px;
+      
+    }
+  
+    .box {
+      position: relative;
+      background-color: #b5b5b5;
+      padding: 20px;
+      border-radius: 10px;
+      width: 400px;
+      text-align: left;
+      color: white;
+      font-size: 18px;
+      line-height: 1.4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      
+    }
+  
+    .check {
+      color: #00aaff;
+      font-size: 20px;
+      margin-right: 10px;
+    }
+  
+    .react-logo {
+      width: 60px;
+      margin-left: 10px;
+    }
+  }
+  
+  .header {
+    margin-bottom: 1rem;
+  }
+  
+  .logo {
+    height: 50px; 
+    
+  }
+  
+  h1 {
+    
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    
+  }
+  
+  p {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 2rem;
+    height: 100px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+  
+  
+  
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  
+    .button {
+     
+      padding: 1rem 2rem;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  }
+  
+  .contact-button {
+    background-color: #ffd700;
+    padding: 1rem 2rem;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .linha {
+    height: 2px;
+    border-bottom: 2px solid #0055ff;
+    margin-top: 10px;
+  }
+  
+ 
