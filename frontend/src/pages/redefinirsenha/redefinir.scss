@@ -1,0 +1,54 @@
+.redefinir{
+ 
+    height: 100vh;
+    background-color: black;
+
+    .acima{
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .acima h1{
+        color: red;
+    }
+
+    .capa{
+        height: 30vh;
+        width: 30vh;
+    }
+
+    input{
+        width: 50vh;
+    }
+
+    button{
+        background-color: white;
+        color: #ff0000;
+    }
+
+    .embaixo{
+        padding: 10vh;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: 7vh;
+        align-items: center;
+        
+    }
+
+    .fundo{
+        display: flex;
+        flex-direction: column;
+        padding: 8vh;
+        align-items: start;
+        gap: 3vh;
+
+
+        .ponto{
+            color: red;
+        }
+    }
+}
