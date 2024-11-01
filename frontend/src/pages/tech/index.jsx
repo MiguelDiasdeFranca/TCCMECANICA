@@ -69,7 +69,7 @@ function App() {
         </div>
       </div>
 
-      {/* Segunda parte: Lista de times */}
+     
       <div className="container">
         <h2>Times completos e flexíveis</h2>
         <div className="team-grid">

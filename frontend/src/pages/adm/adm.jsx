@@ -88,6 +88,22 @@ export default function Administrador({ userName }) { // Recebe o nome do usuár
                 <button className='botao'>Cadastrar</button>
             </div>
 
+            <div id='cliente' className='pedidos fade-in'>
+                <h1>Orçamento</h1>
+                <div className='clientes'>
+                  
+                  
+                    <div className='campos'>
+                        <input className='digit' type="text" placeholder='Orçamento'/>
+                    </div>
+                    <div className='campos'>
+                        <input className='digit' type="text" placeholder='Email Cliente'/>
+                    </div>
+                </div>
+              
+               
+            </div>
+
             <div className="Calendariozinho fade-in">
                 <Calendario />
             </div>
