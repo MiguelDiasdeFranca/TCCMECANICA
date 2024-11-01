@@ -1,39 +1,50 @@
-import con from "./conection.js";
+import con from "../Repository/conection.js"
 
 
-export async function inserirLogin(pessoa) {
+
+export async function validarLogin(pessoa){
+
     const comando = `
-        insert into login (nm_usuario, senha) 
-					        values (?, ?)
+        select 
+        nome
+        from loginadm
+        where 
+        nome =?
+        and senha=?
+
     `;
-    
-    let resposta = await con.query(comando, [pessoa.nmusuario, pessoa.senha])
-    let info = resposta[0];
-    
-    return info.insertId;
+
+    let registros = await con.query(comando, [pessoa.nome , pessoa.senha])
+  
+    return registros[0][0]
+
 }
 
-export async function verificarUsuarioExistente(email, telefone) {
+
+
+export async function verificarLoginExistente(email, telefone) {
     const comando = `
-        select * from login 
-        where nm_usuario  = ?
+        select * from loginadm 
+        where nome = ?
     `;
     let registros = await con.query(comando, [email, telefone]);
     return registros[0]; 
 }
+
 export async function verificarEmail(email) {
     const comando = `
-        select nm_usuario from login 
-        where nm_usuario = ?
+        select nome from loginadm 
+        where nome = ?
     `;
     let registros = await con.query(comando, [email]);
     return registros[0].length > 0;
 }
+
 export async function redefinirSenha(novaSenha, email, codigo) {
     const comando = `
-        udate cadastroadm 
-        set senha  = ? 
-        where nm_usuario = ? and codigo = ?
+        update loginadm 
+        set senha = ? 
+        where nome = ? and codigo = ?
     `;
     
     const resultado = await con.query(comando, [novaSenha, email, codigo]);
@@ -42,10 +53,11 @@ export async function redefinirSenha(novaSenha, email, codigo) {
  
 export async function cadastrarCodigo(codigo, email){
     const comando = `
-    udate cadastroadm   
+    update loginadm  
     set codigo = ? 
-    where nm_usuario = ? 
+    where nome = ? 
     `;
     const resultado = await con.query(comando, [codigo , email]);
     return resultado[0].affectedRows > 0;
+
 }
