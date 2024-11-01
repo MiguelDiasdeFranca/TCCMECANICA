@@ -1,14 +1,14 @@
-
-import * as db from '../Repository/loginRepository.js';
-
+import * as db from '../Repository/loginRepository.js'
 import axios from 'axios';
 import nodemailer from 'nodemailer'
 import  {Router} from "express";
 import { gerarToken } from '../../utils/jwt.js';
 
-const endpoints = Router();
+const endpoints = Router ();
 
-endpoints.post('/entrar/',  async (req,resp) =>{
+
+
+endpoints.post('/entrar',  async (req,resp) =>{
 
     try {
         let pessoa= req.body;
@@ -23,8 +23,6 @@ endpoints.post('/entrar/',  async (req,resp) =>{
                 "token": token
             })
         }
-
-       
     } catch (err) {
         resp.status(400).send({
             erro: err.message
@@ -41,7 +39,7 @@ endpoints.post('/verificar-email', async (req, res) => {
         const response = await axios.get(url);
         res.json(response.data);
     } catch (error) {
-        console.error('Erro ao verifDicar e-mail:', error);
+        console.error('Erro ao verificar e-mail:', error);
         res.status(500).json({ error: 'Erro ao verificar e-mail' });
     }
 });
@@ -95,16 +93,17 @@ endpoints.post('/redefinir-senha', async (req, resp) => {
 });
 
 
+
 endpoints.put('/usuarios/:id', async (req, res) => {
     const { id } = req.params;
-    const { nm_usuario } = req.body;
+    const { nome } = req.body;
 
-    if (!nm_usuario) {
+    if (!nome) {
         return res.status(400).send('O campo  é obrigatório');
     }
 
     try {
-        const resultado = await db.AlterarUsuario(id, { nm_usuario });
+        const resultado = await db.AlterarNome(id, { nome });
 
         if (resultado > 0) {
             res.status(200).send({ message: 'Nome alterado com sucesso' });
@@ -118,6 +117,12 @@ endpoints.put('/usuarios/:id', async (req, res) => {
 });
 
 
+
+
+
+
+
+
 async function enviarEmail(email, codigo) {
     const transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
@@ -129,7 +134,7 @@ async function enviarEmail(email, codigo) {
         }
     });
     const mailOptions = {
-        from: 'juliana.xavier.vicente@acaonsfatima.org.br',
+        from: 'juliana.xavier.vicente@gmail.com',
         to: email,
         subject: 'Código de Redefinição de Senha',
         html: `
@@ -139,7 +144,7 @@ async function enviarEmail(email, codigo) {
                 <p style="color: #333;">Olá,</p>
                 <p style="color: #333;">Você solicitou a redefinição da sua senha. Use o código abaixo para prosseguir:</p>
                 <h3 style="color: #6A0DAD; font-size: 24px;">${codigo}</h3>
-                <p style="color: #333;">Se você não solicitou essa mudança, pode ignorar este email.</p>
+                <p style="color: #333;">Se você não solicitou essa mudança, ignore o email.</p>
                 <hr style="border: 1px solid #6A0DAD;">
                 <footer style="text-align: center; color: #777;">
                     <p>&copy; ${new Date().getFullYear()} Sua Empresa. Todos os direitos reservados.</p>
