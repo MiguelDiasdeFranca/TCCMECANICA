@@ -1,0 +1,24 @@
+.imagem{
+    display: flex;
+    align-items: center;
+
+}
+
+.inputa{
+ font: 100px;
+ font-size: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    
+}
+
+.inputs{
+    display: flex;
+    gap: 7vh;
+    justify-content: space-between;
+}
+.inputs input {
+    width: 17vh; /* Defina o tamanho desejado */
+    height: 40px; /* Deve ser o mesmo valor que a largura para que o input fique quadrado */
+    border-radius: 0; /* Remove o arredondamento */
+}
