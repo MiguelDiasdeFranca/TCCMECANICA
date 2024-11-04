@@ -10,12 +10,12 @@ export default function Login2() {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
-  // Função para controlar a visibilidade da senha
+ 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
 
-  // Efeito de fade-in ao carregar o componente
+
   useEffect(() => {
     setIsVisible(true);
   }, []);
