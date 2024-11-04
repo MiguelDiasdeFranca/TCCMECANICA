@@ -82,7 +82,7 @@ endpoints.post('/redefinir-senha', async (req, resp) => {
         const resultado = await db.redefinirSenha(novaSenha, email, codigo);
 
         if (resultado) {
-            resp.send({ success: true, message: 'Senha redefinida com sucesso!' });
+            resp.send({ success: true, message: 'Senha redefinida com sucesso! Parabens' });
         } else {
             resp.status(400).send({ success: false, message: 'Erro ao redefinir a senha. Verifique o e-mail.' });
         }
