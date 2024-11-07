@@ -33,7 +33,7 @@ foreign key (id_cliente) references clientes (id_cliente)
 
 create table agendamento (
 id_agendamento int auto_increment primary key, 
-data_hora datetime not null unique, 
+data_hora datetime unique, 
 descricao varchar(200), 
 id_cliente int, 
 foreign key(id_cliente) references clientes (id_cliente)
