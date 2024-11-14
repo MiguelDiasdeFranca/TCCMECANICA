@@ -4,14 +4,41 @@ import empresa from './imgempresa.png';
 import pessoa from './pessoa.png';
 import cadeado from './cadeado.jpg';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 export default function Login2() {
+  const [nome, setNome] = useState('');
+  const [senha, setSenha] = useState('');
   const [passwordVisible, setPasswordVisible] = useState(false); 
+  const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
+
+  // Função de login
+  async function entrar() {
+    const usuario = {
+      "nome": nome,
+      "senha": senha
+    };
+
+    const url = `http://localhost:5035/entrar`; 
+    try {
+      let resp = await axios.post(url, usuario);
+
+      if (resp.data.erro) {
+        alert(resp.data.erro); // Exibe erro com alert
+      } else {
+        localStorage.setItem('USUARIO', JSON.stringify(resp.data.usuario));
+        localStorage.setItem('TOKEN', resp.data.token);
+        navigate('/adm'); // Navega para a página inicial após o login bem-sucedido
+      }
+    } catch (error) {
+      alert("Ocorreu um erro na autenticação."); // Exibe erro genérico com alert
+    }
+  }
 
   return (
     <div className="p1">
@@ -26,7 +53,12 @@ export default function Login2() {
 
       <div className="imageml">
         <img src={pessoa} alt="Ícone de usuário" className="icons" />
-        <input type="text" placeholder="Nome" />
+        <input 
+          type="text" 
+          placeholder="Nome" 
+          value={nome} 
+          onChange={(e) => setNome(e.target.value)} // Controlando o valor do input
+        />
       </div>
 
       <div className="imageml">
@@ -34,6 +66,8 @@ export default function Login2() {
         <input 
           type={passwordVisible ? 'text' : 'password'} 
           placeholder="Senha" 
+          value={senha} 
+          onChange={(e) => setSenha(e.target.value)} // Controlando o valor da senha
         />
       </div>
 
@@ -53,8 +87,9 @@ export default function Login2() {
       </div>
 
       <div className="botao">
-        <button className="login">Fazer login</button>
+        <button className="login" onClick={entrar}>Fazer login</button>
       </div>
     </div>
   );
 }
+
