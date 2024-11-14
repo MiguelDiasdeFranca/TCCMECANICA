@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.scss';
 import empresa from './imgempresa.png';
 import pessoa from './pessoa.png';
@@ -7,26 +7,17 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import { Link } from "react-router-dom";
 
 export default function Login2() {
-  const [passwordVisible, setPasswordVisible] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const [passwordVisible, setPasswordVisible] = useState(false); 
 
- 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
 
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
   return (
-    <div className={`p1 ${isVisible ? 'fade-in' : ''}`}>
+    <div className="p1">
       <Link to="/">
-
-
         <div className="voltar">
-          <i className="fas fa-arrow-left" style={{ fontSize: '30px', color: 'white' }}></i> 
+          <i className="fas fa-arrow-left"></i>
         </div>
       </Link>
 
@@ -35,8 +26,8 @@ export default function Login2() {
 
       <div className="imageml">
         <img src={pessoa} alt="Ícone de usuário" className="icons" />
-        <input type="txto" placeholder="Nome" />
-      </div> 
+        <input type="text" placeholder="Nome" />
+      </div>
 
       <div className="imageml">
         <img src={cadeado} alt="Ícone de cadeado" className="icons" />
@@ -46,7 +37,7 @@ export default function Login2() {
         />
       </div>
 
-      <div className="senha">
+      <div className="senha1">
         <p className="txto">Mostrar senha</p>
         <input 
           className="inputao"
@@ -56,7 +47,7 @@ export default function Login2() {
         />
       </div>
 
-      <div className="senha">
+      <div className="senha2">
         <p className="txto">Lembrar senha</p>
         <input className="inputao" type="checkbox" />
       </div>

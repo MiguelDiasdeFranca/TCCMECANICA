@@ -71,8 +71,8 @@ export default function App() {
             <button className='botao'><h2>Fazer Login</h2></button>
           </Link>
 
-          <Link to="/login">
-            <p className='patinho'>Novo aqui? <strong>faça seu cadastro</strong></p>
+          <Link to="/redefinirsenha">
+         <h2>Redefinir senha</h2>
           </Link>
         </div>
       </div>

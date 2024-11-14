@@ -1,5 +1,7 @@
 import './redefinir.scss'
 import imagemempresa from  './imgempresa.png'
+import { Link } from 'react-router-dom'
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 export default function Redefinir(){
     return(
@@ -17,12 +19,12 @@ export default function Redefinir(){
 <div className='embaixo'>
     
 
-    <input type="text" placeholder='E-mail' />
-
+    <input className='digit' type="text" placeholder='E-mail' />
+<Link to ="/confirmacao">
     <button>
         avançar
     </button>
-
+    </Link>
 </div>
 
 <div className='fundo'>
@@ -31,8 +33,13 @@ export default function Redefinir(){
 
 </div>
 
-
-                </div>
+<Link to="/">
+<div className="voltar">
+  <i className="fas fa-arrow-left" style={{ fontSize: '30px', color: 'white' }}></i> 
+</div>
+</Link>
+    </div>
+               
 
 
     )
