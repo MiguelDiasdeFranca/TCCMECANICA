@@ -6,7 +6,7 @@ import { Router } from "express";
 const endpoints = Router();
 
 
-endpoints.get('/clientes', autenticar, async (req, resp) => {
+endpoints.get('/clientes/', autenticar, async (req, resp) => {
     try {
         let idCliente = req.user.id;
         let registros = await db.consultarCliente(idCliente);

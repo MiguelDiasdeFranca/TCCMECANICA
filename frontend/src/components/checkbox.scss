@@ -1,6 +1,7 @@
 .checkbox-container {
- margin-left: 10px;
- margin-right: 20vh;
+    margin-left: 10px;
+    margin-right: 20vh;
+    background-color: rgb(128, 128, 128);
 }
 
 .checkbox-input {
@@ -8,23 +9,32 @@
 }
 
 .checkbox-label {
-    width: 40px;
-    height: 40px;
-    border: 2px solid red;
+    width: 60px; /* Aumentando a largura do quadrado */
+    height: 60px; /* Aumentando a altura do quadrado */
+    border: 2px solid rgb(128, 128, 128);
     border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: background-color 0.3s ease, border-color 0.3s ease;
+    background-color: rgb(128, 128, 128);
 }
 
 .checkbox-label i {
-    color: white; 
-    font-size: 20px;
+    background-color: rgb(255, 0, 0); /* Cor padrão quando não marcado */
+    color: white;
+    font-size: 30px; /* Aumentar o tamanho do ícone */
+    display: inline-block;
+    width: 30px;  /* Ajustar a largura do ícone para ficar proporcional */
+    height: 30px; /* Ajustar a altura do ícone para ficar proporcional */
+    text-align: center;
+    line-height: 30px; /* Alinha o ícone verticalmente */
+    border-radius: 4px; /* Arredondar as bordas, opcional */
 }
 
-.checkbox-label.checked {
+.checkbox-label.checked i {
     background-color: green; 
-    border-color: green; 
+    color: white; 
+    border-color: green;
 }

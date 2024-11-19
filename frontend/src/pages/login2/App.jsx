@@ -16,8 +16,6 @@ export default function Login2() {
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
-
-  // Função de login
   async function entrar() {
     const usuario = {
       "nome": nome,
@@ -29,14 +27,14 @@ export default function Login2() {
       let resp = await axios.post(url, usuario);
 
       if (resp.data.erro) {
-        alert(resp.data.erro); // Exibe erro com alert
+        alert(resp.data.erro);
       } else {
         localStorage.setItem('USUARIO', JSON.stringify(resp.data.usuario));
         localStorage.setItem('TOKEN', resp.data.token);
-        navigate('/adm'); // Navega para a página inicial após o login bem-sucedido
+        navigate('/adm'); 
       }
     } catch (error) {
-      alert("Ocorreu um erro na autenticação."); // Exibe erro genérico com alert
+      alert("Ocorreu um erro na autenticação.");
     }
   }
 
@@ -57,7 +55,7 @@ export default function Login2() {
           type="text" 
           placeholder="Nome" 
           value={nome} 
-          onChange={(e) => setNome(e.target.value)} // Controlando o valor do input
+          onChange={(e) => setNome(e.target.value)} 
         />
       </div>
 
@@ -67,7 +65,7 @@ export default function Login2() {
           type={passwordVisible ? 'text' : 'password'} 
           placeholder="Senha" 
           value={senha} 
-          onChange={(e) => setSenha(e.target.value)} // Controlando o valor da senha
+          onChange={(e) => setSenha(e.target.value)} 
         />
       </div>
 
