@@ -187,7 +187,7 @@ a {
   background-color: #D9D9D9;
 }
 
-.clientes {
+.clientes  {
   margin: 0 auto;
   margin-top: 40px;
   padding: 40px;
@@ -273,6 +273,16 @@ label {
 .clientelegal{
   background-color: transparent;
 }
+.cadastrodepedido{
+  margin-top: 50vh;
+  margin-left: 31vh;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.campos2{
+  display: flex;
+  padding: 20px;
+}
 
 
 // Responsividade
@@ -355,3 +365,4 @@ label {
 margin-top: 40vh;
 margin-left:40vh ;
 }
+

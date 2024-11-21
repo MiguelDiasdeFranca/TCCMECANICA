@@ -3,7 +3,7 @@ import con from "./conection.js";
 
 export async function inserirPedido(pedido) {
     const comando = `
-        insert into tb_diario (carro, placa, descricao, entregue, preco, pago, id_cliente) 
+        insert into pedidos (carro, placa, descricao, entregue, preco, pago, id_cliente) 
 					        values (?, ?, ?, ?, ?, ?, ?)
     `;
     
@@ -16,15 +16,7 @@ export async function inserirPedido(pedido) {
 
 export async function consultarPedido(idPedido) {
     const comando = `
-    select 
-    clientes.nome as nome_cliente,
-    pedidos.descricao,
-    pedidos.entregue,
-    pedidos.pago
-from 
-    pedidos
-join 
-    clientes on pedidos.id_cliente = clientes.id_cliente;
+    select * from pedidos
     `;
 
     let resposta = await con.query(comando, [idPedido]);

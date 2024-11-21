@@ -16,15 +16,7 @@ export async function inserirCliente(cliente) {
 
 export async function consultarCliente(idCliente) {
     const comando = `
-        select   
-            nome, 
-            telefone,
-            endereco, 
-            carro, 
-            placa, 
-            descricao
-          from clientes
-          where id_cliente = ?
+        select *  from clientes
     `;
 
     let resposta = await con.query(comando, [idCliente]);

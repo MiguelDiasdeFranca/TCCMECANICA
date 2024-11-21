@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
     margin: 0;
+    background-color: black;
 }
 
 .p1 {
@@ -36,12 +37,11 @@
     height: 40vh;
 }
 
-.botao {
+.botao2 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-    margin-top: 10px;
+   
 }
 
 button {

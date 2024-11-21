@@ -84,7 +84,7 @@ export default function Login2() {
         <input className="inputao" type="checkbox" />
       </div>
 
-      <div className="botao">
+      <div className="botao2">
         <button className="login" onClick={entrar}>Fazer login</button>
       </div>
     </div>
