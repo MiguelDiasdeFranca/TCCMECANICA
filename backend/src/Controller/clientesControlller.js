@@ -67,20 +67,20 @@ endpoints.delete('/cliente/:id', autenticar, async (req, resp) => {
     try {
         let id = req.params.id;
 
-        let linhasAfetadas = await db.removerCliente(id);
+        let linhasAfetadas = await db.removerCliente(id);  
         if (linhasAfetadas >= 1) {
-            resp.send();
+            resp.send();  
         }
         else {
-            resp.status(404).send({ erro: 'Nenhum cliente encontrado' })
+            resp.status(404).send({ erro: 'Nenhum cliente encontrado' });  
         }
     }
     catch (err) {
         resp.status(400).send({
             erro: err.message
-        })
+        });
     }
-})
+});
 
 
 

@@ -9,6 +9,7 @@ import Administrador from './pages/adm/adm.jsx';
 import Consultar from './pages/adm/consultarpedido/consultar.jsx';
 import Consultarpedido from './pages/adm/consultarcliente/consultar.jsx';
 import Consultarcliente from './pages/adm/consultarcliente/consultar.jsx';
+import Alterarcliente from './pages/adm/alterarcliente/alterar.jsx';
 
 function ProtectedRoute({ children }) {
   const token = localStorage.getItem('TOKEN');
@@ -19,6 +20,9 @@ export default function Navigation() {
   return (
     <Router>
       <Routes>
+    
+      <Route path="/consultarclientes" element={<Consultarcliente />} />
+      <Route path="/alterarcliente/:id_cliente" element={<Alterarcliente />} />
       <Route path="/consultarcliente" element={<Consultarpedido />} />
       <Route path="/consultar" element={<Consultar />} />
         <Route path="/" element={<Landingpage />} />
@@ -26,7 +30,7 @@ export default function Navigation() {
         <Route path="/confirmacao" element={<Confirmacao />} />
         <Route path="/redefinirsenha" element={<Redefinir />} />
         <Route path="/redefinirsenha2" element={<Senha />} />
-
+    
 
         {/* Rota protegida para o Administrador */}
         <Route
@@ -39,6 +43,8 @@ export default function Navigation() {
         />
 
         {/* Redireciona para a página principal se a rota não existir */}
+        <Route path="/consultarclientes" element={<Consultarcliente />} />
+        <Route path="/alterarcliente/:id_cliente" element={<Alterarcliente />} />
        <Route path="/consultar" element={<Consultar />} />
        <Route path="/consultarcliente" element={<Consultarcliente />} />
       </Routes>

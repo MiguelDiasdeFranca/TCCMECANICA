@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './consultar.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { toast } from 'react-toastify'; // Certifique-se de que esta biblioteca está instalada
+import { toast } from 'react-toastify';
 
 export default function Consultar() {
     const [token, setToken] = useState(null);
@@ -15,10 +15,9 @@ export default function Consultar() {
     const [pago, setPago] = useState(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    
+
     const navigate = useNavigate();
 
-    // Efeito para verificar se o token está presente e redirecionar se necessário
     useEffect(() => {
         const token = localStorage.getItem('TOKEN');
         setToken(token);
@@ -30,7 +29,6 @@ export default function Consultar() {
         }
     }, [navigate]);
 
-    // Função para buscar todos os clientes
     const buscar = async () => {
         try {
             const url = `http://localhost:5035/pedido/?x-access-token=${token}`;
@@ -43,11 +41,9 @@ export default function Consultar() {
         }
     };
 
-    // Função para filtrar clientes com base nos critérios de busca
     const consultarClientes = async () => {
         setLoading(true);
         try {
-            // Construir a URL com os filtros de busca
             const url = `http://localhost:5035/pedido/?x-access-token=${token}&carro=${carro}&placa=${placa}&descricao=${descricao}&entregue=${entregue}&preco=${preco}&pago=${pago}`;
             const resp = await axios.get(url);
             setClientes(resp.data);
@@ -60,19 +56,22 @@ export default function Consultar() {
         }
     };
 
-    // Função para excluir um cliente
-    const excluir = async (id, nome) => {
+    const excluir = async (id_pedido, nome) => {
+        const confirmacao = window.confirm(`Tem certeza que deseja excluir o pedido do carro ${nome}?`);
+        if (!confirmacao) return;
+
         try {
-            const url = `http://localhost:5035/pedido/${id}?x-access-token=${token}`;
+            const url = `http://localhost:5035/pedido/${id_pedido}?x-access-token=${token}`;
             await axios.delete(url);
-            await buscar();
-            toast.success(`${nome} removido da lista de clientes!`);
+    
+            // Atualizando a lista local de clientes sem precisar de uma nova requisição
+            setClientes((prevClientes) => prevClientes.filter(cliente => cliente.id_pedido !== id_pedido));
+            toast.success(`${nome} removido da lista de pedidos!`);
         } catch (error) {
-            toast.error('Erro ao excluir cliente!');
+            toast.error(`Erro ao excluir pedido: ${error.response ? error.response.data.erro : 'Erro desconhecido'}`);
         }
     };
 
-    // Animação de fade-in para os elementos visíveis
     useEffect(() => {
         const fadeElements = document.querySelectorAll('.fade-in');
         const observer = new IntersectionObserver(
@@ -83,31 +82,28 @@ export default function Consultar() {
                     }
                 });
             },
-            {
-                threshold: 0.2, // Ajusta o quanto do elemento precisa estar visível para a animação iniciar
-            }
+            { threshold: 0.2 }
         );
 
         fadeElements.forEach((el) => observer.observe(el));
 
-        return () => observer.disconnect();  // Limpa o observer quando o componente for desmontado
+        return () => observer.disconnect();
     }, []);
 
     return (
         <div className="pagina-consultar">
-            <h1 className='titulo2'>Consultar Cliente</h1>
-          
+            <h1 className="titulo2">Consultar Pedido</h1>
+
             <button onClick={consultarClientes} disabled={loading}>
                 {loading ? 'Carregando...' : 'Buscar'}
             </button>
 
-            {/* Exibe a mensagem de erro, se houver */}
             {error && <div className="erro">{error}</div>}
 
-            {/* Exibe os dados em uma tabela */}
             <table>
                 <thead>
                     <tr>
+                        <th>ID</th>
                         <th>Carro</th>
                         <th>Placa</th>
                         <th>Descrição</th>
@@ -119,7 +115,7 @@ export default function Consultar() {
                 <tbody>
                     {clientes.length > 0 ? (
                         clientes.map(item => (
-                            <tr key={item.id}>
+                            <tr key={item.id_pedido}>
                                 <td>{item.carro}</td>
                                 <td>{item.placa}</td>
                                 <td>{item.descricao}</td>
@@ -127,24 +123,23 @@ export default function Consultar() {
                                 <td>{item.preco}</td>
                                 <td>{item.pago ? 'Sim' : 'Não'}</td>
                                 <td>
-                                    <button onClick={() => excluir(item.id, item.carro)}>Excluir</button>
+                                    <button onClick={() => excluir(item.id_pedido, item.carro)}>
+                                        Excluir
+                                    </button>
                                 </td>
                             </tr>
                         ))
                     ) : (
                         <tr>
-                            <td colSpan="6">Nenhum cliente encontrado.</td>
+                            <td colSpan="7">Nenhum pedido encontrado.</td>
                         </tr>
                     )}
                 </tbody>
             </table>
 
-            {/* Link para voltar */}
             <Link to="/adm">
                 <button className="voltar">
-               
-  <i className="fas fa-arrow-left" style={{ fontSize: '35px', color: 'white' }}></i> 
-
+                    <i className="fas fa-arrow-left" style={{ fontSize: '35px', color: 'white' }}></i> 
                 </button>
             </Link>
         </div>
