@@ -7,7 +7,7 @@ export async function inserirAgendamento(agendamento) {
 					        values (?, ?, ?)
     `;
     
-    let resposta = await con.query(comando, [agendamento.datahora, agendamento.descricao, agendamento.idCliente])
+    let resposta = await con.query(comando, [agendamento.data_hora, agendamento.descricao, agendamento.id_Cliente])
     let info = resposta[0];
     
     return info.insertId;
@@ -16,14 +16,7 @@ export async function inserirAgendamento(agendamento) {
 
 export async function consultarAgendamento(idAgendamento) {
     const comando = `
-    select 
-    clientes.nome AS nome_cliente,
-    agendamento.descricao,
-    agendamento.data_hora
-from 
-    agendamento
-join 
-    clientes on agendamento.id_cliente = clientes.id_cliente;
+    select * from agendamento
 `;
 
     let resposta = await con.query(comando, [idAgendamento]);

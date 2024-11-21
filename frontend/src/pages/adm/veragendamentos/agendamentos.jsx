@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import './consultar.scss';
+import './agendamentos.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-export default function Consultar() {
+export default function Veragendamentos() {
     const [token, setToken] = useState(null);
     const [clientes, setClientes] = useState([]);
+    const [data,setData] = useState ('')
     const [carro, setCarro] = useState('');
     const [placa, setPlaca] = useState('');
     const [descricao, setDescricao] = useState('');
@@ -29,9 +30,10 @@ export default function Consultar() {
         }
     }, [navigate]);
 
+    
     const buscar = async () => {
         try {
-            const url = `http://localhost:5035/pedido/?x-access-token=${token}`;
+            const url = `http://localhost:5035/agendamento/?x-access-token=${token}`;
             const resp = await axios.get(url);
             setClientes(resp.data);
             toast(`${resp.data.length} item(s) encontrado(s)!`, { icon: '🔎' });
@@ -44,7 +46,7 @@ export default function Consultar() {
     const consultarClientes = async () => {
         setLoading(true);
         try {
-            const url = `http://localhost:5035/pedido/?x-access-token=${token}&carro=${carro}&placa=${placa}&descricao=${descricao}&entregue=${entregue}&preco=${preco}&pago=${pago}`;
+            const url = `http://localhost:5035/agendamento/?x-access-token=${token}&carro=${data}&descricao=${descricao}`;
             const resp = await axios.get(url);
             setClientes(resp.data);
             toast(`${resp.data.length} item(s) encontrado(s)!`, { icon: '🔎' });
@@ -61,7 +63,7 @@ export default function Consultar() {
         if (!confirmacao) return;
 
         try {
-            const url = `http://localhost:5035/pedido/${id_pedido}?x-access-token=${token}`;
+            const url = `http://localhost:5035/agendamento/${id_pedido}?x-access-token=${token}`;
             await axios.delete(url);
     
             // Atualizando a lista local de clientes sem precisar de uma nova requisição
@@ -92,7 +94,7 @@ export default function Consultar() {
 
     return (
         <div className="pagina-consultar">
-            <h1 className="titulo2">Consultar Pedido</h1>
+            <h1 className="titulo2">Ver Agendamentos</h1>
 
             <button onClick={consultarClientes} disabled={loading}>
                 {loading ? 'Carregando...' : 'Buscar'}
@@ -103,27 +105,18 @@ export default function Consultar() {
             <table>
                 <thead>
                     <tr>
-                        <th>Carro</th>
-                        <th>Placa</th>
+                        <th>Data</th>
                         <th>Descrição</th>
-                        <th>Entregue</th>
-                        <th>Preço</th>
-                        <th>Pago</th>
-                        <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
                     {clientes.length > 0 ? (
-                        clientes.map(item => (
-                            <tr key={item.id_pedido}>
-                                <td>{item.carro}</td>
-                                <td>{item.placa}</td>
+                         clientes.map(item => (
+                            <tr key={item.id_cliente}>
+                                <td>{item.data_hora}</td> 
                                 <td>{item.descricao}</td>
-                                <td>{item.entregue ? 'Sim' : 'Não'}</td>
-                                <td>{item.preco}</td>
-                                <td>{item.pago ? 'Sim' : 'Não'}</td>
                                 <td>
-                                    <button onClick={() => excluir(item.id_pedido, item.carro)}>
+                                    <button onClick={() => excluir(item.id_agendamento)}>
                                         Excluir
                                     </button>
                                 </td>

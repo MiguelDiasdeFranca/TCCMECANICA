@@ -3,7 +3,7 @@ import con from "./conection.js";
 
 export async function inserirOrcamento( orcamento) {
     const comando = `
-        insert into tb_diario (carro, placa, enderco, telefone, descricao, pecas, valor) 
+        insert into orcamento (carro, placa, enderco, telefone, descricao, pecas, valor) 
 					        values (?, ?, ?, ?, ?, ?, ?)
     `;
     
@@ -16,20 +16,7 @@ export async function inserirOrcamento( orcamento) {
 
 export async function consultarOrcamento(idOrcamento) {
     const comando = `
-    SELECT 
-    o.id_cliente,
-    c.nome,
-    o.carro,
-    o.placa,
-    o.enderco,
-    o.telefone,
-    o.descricao,
-    o.pecas,
-    o.valor
-FROM 
-    orcamento o
-INNER JOIN 
-    clientes c ON o.id_cliente = c.id_cliente;
+   select * from orcamento
     `;
 
     let resposta = await con.query(comando, [idOrcamento]);

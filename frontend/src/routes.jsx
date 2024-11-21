@@ -10,6 +10,8 @@ import Consultar from './pages/adm/consultarpedido/consultar.jsx';
 import Consultarpedido from './pages/adm/consultarcliente/consultar.jsx';
 import Consultarcliente from './pages/adm/consultarcliente/consultar.jsx';
 import Alterarcliente from './pages/adm/alterarcliente/alterar.jsx';
+import Consultarorcamento from './pages/adm/consultarorcamento/consultar.jsx';
+import Veragendamentos from './pages/adm/veragendamentos/agendamentos.jsx';
 
 function ProtectedRoute({ children }) {
   const token = localStorage.getItem('TOKEN');
@@ -20,7 +22,8 @@ export default function Navigation() {
   return (
     <Router>
       <Routes>
-    
+      <Route path="/veragendamentos" element={<Veragendamentos />} />
+      <Route path="/consultarorcamento" element={<Consultarorcamento />} />
       <Route path="/consultarclientes" element={<Consultarcliente />} />
       <Route path="/alterarcliente/:id_cliente" element={<Alterarcliente />} />
       <Route path="/consultarcliente" element={<Consultarpedido />} />
@@ -43,6 +46,7 @@ export default function Navigation() {
         />
 
         {/* Redireciona para a página principal se a rota não existir */}
+        <Route path="/consultarorcamento" element={<Consultarorcamento />} />
         <Route path="/consultarclientes" element={<Consultarcliente />} />
         <Route path="/alterarcliente/:id_cliente" element={<Alterarcliente />} />
        <Route path="/consultar" element={<Consultar />} />
