@@ -85,7 +85,7 @@ export default function App() {
           </div>
           <div className="descricao">
             <p className='paragrafo'>
-              <strong>Rodando Seguro</strong> foi fundada em 2000 por Laura Martins,
+              Rodando Seguro foi fundada em 2000 por Laura Martins,
               uma apaixonada mecânica automotiva com uma visão clara: transformar
               a manutenção de veículos em uma experiência que garanta não apenas
               a qualidade dos serviços, mas também a segurança e a confiança dos

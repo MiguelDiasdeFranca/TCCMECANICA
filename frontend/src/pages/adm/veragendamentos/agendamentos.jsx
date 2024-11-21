@@ -113,7 +113,7 @@ export default function Veragendamentos() {
                     {clientes.length > 0 ? (
                          clientes.map(item => (
                             <tr key={item.id_cliente}>
-                                <td>{item.data_hora}</td> 
+                                <td>{new Date(item.data_hora).toLocaleDateString()}</td> 
                                 <td>{item.descricao}</td>
                                 <td>
                                     <button onClick={() => excluir(item.id_agendamento)}>

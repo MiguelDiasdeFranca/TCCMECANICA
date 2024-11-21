@@ -9,7 +9,7 @@
 
 .App{
 
-
+background-color: black;
 
   .cabecalho {
     display: flex;
@@ -158,14 +158,13 @@ a{
 .partebaixo{
   
   padding: 5vh;
-  background-color: black;
   display: flex;
   flex-direction: row;
   height: 70vh;
   background-image:url('http://localhost:3000/assets/images/image.svg');
   background-repeat: no-repeat;
   background-size: cover;
-  margin-top: 300px;
+  margin-top: 139px;  
 }
 
 h1{
@@ -220,6 +219,10 @@ height: 30vh;
   font-weight: 00;
   font-style: normal;
 
+.titulao{
+  margin-left: 70px;
+}
+
 }
 
 .icone-sobre {
@@ -230,15 +233,19 @@ height: 30vh;
 
 .descricao p {
   font-size: 2vh;
-  line-height: 1.8;
-  margin-left: 5vh;
+  margin-left: 8vh;
   color: white;
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   font-style: normal;
-  line-height: 7vh;
-  width: 500px;
   
+}
+
+.descricao{
+
+  .paragrafo{
+    width: 500px;
+  }
 }
 
 .imagem-mecanico {

@@ -393,7 +393,7 @@ export default function Administrador({ userName }) { // Recebe o nome do usuár
                 <Calendario />
                 <div className="digitacao">
                     <input className="o3"
-                        type="text"
+                        type="date"
                         name="data"
                         value={data}
                         onChange={(e) => setData(e.target.value)} />
