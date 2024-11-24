@@ -6,16 +6,12 @@ import { toast } from 'react-toastify';
 
 export default function Veragendamentos() {
     const [token, setToken] = useState(null);
-    const [clientes, setClientes] = useState([]);
-    const [data,setData] = useState ('')
-    const [carro, setCarro] = useState('');
-    const [placa, setPlaca] = useState('');
     const [descricao, setDescricao] = useState('');
-    const [entregue, setEntregue] = useState(false);
-    const [preco, setPreco] = useState('');
-    const [pago, setPago] = useState(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    const [clientes, setClientes] = useState([]);
+    const [editandoId, setEditandoId] = useState(null); // Para controlar qual agendamento está sendo editado
+    const [novaDescricao, setNovaDescricao] = useState(''); // Para armazenar a nova descrição
 
     const navigate = useNavigate();
 
@@ -30,13 +26,11 @@ export default function Veragendamentos() {
         }
     }, [navigate]);
 
-    
     const buscar = async () => {
         try {
             const url = `http://localhost:5035/agendamento/?x-access-token=${token}`;
             const resp = await axios.get(url);
-            setClientes(resp.data);
-            toast(`${resp.data.length} item(s) encontrado(s)!`, { icon: '🔎' });
+            setClientes(resp.data); // Atualizando a lista de clientes com o retorno do servidor
         } catch (error) {
             toast.error('Erro ao buscar clientes!');
             setError('Erro ao buscar clientes!');
@@ -46,10 +40,9 @@ export default function Veragendamentos() {
     const consultarClientes = async () => {
         setLoading(true);
         try {
-            const url = `http://localhost:5035/agendamento/?x-access-token=${token}&carro=${data}&descricao=${descricao}`;
+            const url = `http://localhost:5035/agendamento/?x-access-token=${token}&descricao=${descricao}`;
             const resp = await axios.get(url);
             setClientes(resp.data);
-            toast(`${resp.data.length} item(s) encontrado(s)!`, { icon: '🔎' });
         } catch (error) {
             toast.error('Erro ao filtrar clientes!');
             setError('Erro ao filtrar clientes!');
@@ -58,19 +51,49 @@ export default function Veragendamentos() {
         }
     };
 
-    const excluir = async (id_pedido, nome) => {
-        const confirmacao = window.confirm(`Tem certeza que deseja excluir o pedido do carro ${nome}?`);
+    const excluir = async (id_agendamento) => {
+        const confirmacao = window.confirm('Tem certeza que deseja excluir o agendamento?');
         if (!confirmacao) return;
 
         try {
-            const url = `http://localhost:5035/agendamento/${id_pedido}?x-access-token=${token}`;
+            const url = `http://localhost:5035/agendamento/${id_agendamento}?x-access-token=${token}`;
             await axios.delete(url);
-    
-            // Atualizando a lista local de clientes sem precisar de uma nova requisição
-            setClientes((prevClientes) => prevClientes.filter(cliente => cliente.id_pedido !== id_pedido));
-            toast.success(`${nome} removido da lista de pedidos!`);
+
+            setClientes((prevClientes) =>
+                prevClientes.filter(cliente => cliente.id_agendamento !== id_agendamento)
+            );
+            toast.success('Agendamento removido com sucesso!');
         } catch (error) {
-            toast.error(`Erro ao excluir pedido: ${error.response ? error.response.data.erro : 'Erro desconhecido'}`);
+            toast.error(`Erro ao excluir agendamento: ${error.response ? error.response.data.erro : 'Erro desconhecido'}`);
+        }
+    };
+
+    const iniciarEdicao = (id_agendamento, descricaoAtual) => {
+        setEditandoId(id_agendamento);
+        setNovaDescricao(descricaoAtual);
+    };
+
+    const salvarDescricao = async () => {
+        console.log('Nova Descrição:', novaDescricao); // Verifique se o valor está correto
+    
+        if (!novaDescricao) {
+            toast.error('Descrição não pode estar vazia');
+            return;
+        }
+    
+        try {
+            const url = `http://localhost:5035/agendamento/${editandoId}?x-access-token=${token}`;
+            await axios.put(url, { descricao: novaDescricao });
+    
+            // Após a atualização, busque novamente os dados para garantir que a lista esteja atualizada
+            await buscar();
+    
+            // Finaliza a edição
+            setEditandoId(null);
+            setNovaDescricao('');
+            toast.success('Descrição alterada com sucesso!');
+        } catch (error) {
+            toast.error(`Erro ao alterar descrição: ${error.response ? error.response.data.erro : 'Erro desconhecido'}`);
         }
     };
 
@@ -105,26 +128,47 @@ export default function Veragendamentos() {
             <table>
                 <thead>
                     <tr>
-                        <th>Data</th>
                         <th>Descrição</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
                     {clientes.length > 0 ? (
-                         clientes.map(item => (
+                        clientes.map(item => (
                             <tr key={item.id_cliente}>
-                                <td>{new Date(item.data_hora).toLocaleDateString()}</td> 
-                                <td>{item.descricao}</td>
                                 <td>
-                                    <button onClick={() => excluir(item.id_agendamento)}>
-                                        Excluir
-                                    </button>
+                                    {editandoId === item.id_agendamento ? (
+                                        <input
+                                        type="text"
+                                        value={novaDescricao}
+                                        onChange={(e) => setNovaDescricao(e.target.value)} 
+                                        placeholder="Digite a nova descrição"
+                                        />
+                                    ) : (
+                                        item.descricao
+                                    )}
+                                </td>
+                                <td>
+                                    {editandoId === item.id_agendamento ? (
+                                        <button onClick={salvarDescricao} >
+                                            Salvar
+                                        </button>
+                                    ) : (
+                                        <>
+                                            <button onClick={() => iniciarEdicao(item.id_agendamento, item.descricao)} >
+                                                Alterar
+                                            </button>
+                                            <button onClick={() => excluir(item.id_agendamento)} >
+                                                Excluir
+                                            </button>
+                                        </>
+                                    )}
                                 </td>
                             </tr>
                         ))
                     ) : (
                         <tr>
-                            <td colSpan="7">Nenhum pedido encontrado.</td>
+                            <td colSpan="7">Nenhum agendamento encontrado.</td>
                         </tr>
                     )}
                 </tbody>

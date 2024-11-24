@@ -56,7 +56,7 @@ background-color: black;
 
   height: 100%;
   margin-right: 60vh;
-  margin-left: 10vh;
+  margin-left:-30vh;
   width: 20vh;
 }
 
@@ -160,11 +160,11 @@ a{
   padding: 5vh;
   display: flex;
   flex-direction: row;
-  height: 70vh;
+  height: 100vh;
   background-image:url('http://localhost:3000/assets/images/image.svg');
   background-repeat: no-repeat;
   background-size: cover;
-  margin-top: 139px;  
+  margin-top: 180px;  
 }
 
 h1{
@@ -379,8 +379,8 @@ body {
     }
   }
   .social-icons {
-    display: flex; /* Alinha os ícones horizontalmente */
-    gap: 10px; /* Espaço entre os ícones */
+    display: flex; 
+    gap: 10px; 
     margin-top: 4vh;
   }
   
@@ -504,7 +504,8 @@ body {
     height: 7vh;
     width: 18vh;
     margin-top: 30px;
-    padding: 10px 20px;
+    padding: 2px 20px;
+   
     background-color: #ff1900;
     color: #fff;
     border: none;
@@ -568,6 +569,10 @@ body {
       }
     }
   }
+}
+
+.omg{
+  margin-top: 20px;
 }
 
 .feedbacks{

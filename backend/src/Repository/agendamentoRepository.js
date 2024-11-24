@@ -3,11 +3,11 @@ import con from "./conection.js";
 
 export async function inserirAgendamento(agendamento) {
     const comando = `
-        insert into agendamento (data_hora, descricao, id_cliente) 
-					        values (?, ?, ?)
+        INSERT INTO agendamento (descricao) 
+        VALUES (?)
     `;
     
-    let resposta = await con.query(comando, [agendamento.data_hora, agendamento.descricao, agendamento.id_Cliente])
+    let resposta = await con.query(comando, [agendamento.descricao]);
     let info = resposta[0];
     
     return info.insertId;
@@ -25,18 +25,18 @@ export async function consultarAgendamento(idAgendamento) {
     return registros;
 }
 
-export async function alterarAgendamento(id, pessoa) {
+export async function alterarAgendamento(id, descricao) {
     const comando = `
-         update agendamento 
-                set data_hora = ?,
-                descricao = ?
-            where id_agendamento = ?
-    `
+        UPDATE agendamento 
+        SET descricao = ? 
+        WHERE id_agendamento = ?
+    `;
 
-    let resposta = await con.query(comando, [pessoa.datahora, pessoa.descricao, id])
+
+    let resposta = await con.query(comando, [descricao, id]);
     let info = resposta[0];
 
-    return info.affectedRows;
+    return info.affectedRows;  
 }
 
 

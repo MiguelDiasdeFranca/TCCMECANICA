@@ -58,7 +58,7 @@ export default function App() {
         <a href="#nossosservicos" onClick={(e) => handleScroll(e, 'nossosservicos')}>Nossos Serviços</a>
         <a href="#localizacao" onClick={(e) => handleScroll(e, 'localizacao')}>Onde nos localizamos?</a>
         <a href="#feedback" onClick={(e) => handleScroll(e, 'feedback')}>Feedbacks</a>
-        <button className='B'><h4>Faça seu agendamento</h4></button>
+        <a href="https://wa.me/5511954256534" target="_blank" rel="noopener noreferrer"><button className='B'><h4>Faça seu agendamento</h4></button></a>
       </div>
 
       <div id="inicio" className='partebaixo invisible'>
@@ -68,7 +68,7 @@ export default function App() {
           <h3>A mais de vinte anos exercendo nossa profissão, para que você sempre rode seguro!</h3>
 
           <Link to="/login2">
-            <button className='botao'><h2>Fazer Login</h2></button>
+            <button className='botao'><h2 className='omg'>Fazer Login</h2></button>
           </Link>
 
           <Link to="/redefinirsenha">

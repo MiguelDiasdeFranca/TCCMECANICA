@@ -36,7 +36,6 @@ export default function Administrador({ userName }) { // Recebe o nome do usuár
     const [placa, setPlaca] = useState(''); // Placa
     const [descricao, setDescricao] = useState(''); // Descrição
     const [pecas, setPecas] = useState('');
-    const [data, setData] = useState('');
     const [preco, setPreco] = useState(''); // Valor (preço do orçamento)
     const [entregue, setEntregue] = useState(false); // Status de entrega (não está na tabela original, mas pode ser útil)
     const [pago, setPago] = useState(false); // Status de pagamento (não está na tabela original, mas pode ser útil)
@@ -84,17 +83,7 @@ export default function Administrador({ userName }) { // Recebe o nome do usuár
             alert('Erro ao salvar, verifique se este email já não está cadastrado. ' + err.message);
         }
     };
-
-
-    const formatDate = (dataStr) => {
-        const [dia, mes, ano] = dataStr.split('/');
-        return `${ano}-${mes}-${dia}`;
-      };
       
-      const handleDateChange = (e) => {
-        const dataFormatada = formatDate(e.target.value); // Convertendo a data para o formato correto
-        setData(dataFormatada);
-      };
 
     const Salvarpedido = async () => {
         let paramCorpo = {
@@ -165,7 +154,6 @@ export default function Administrador({ userName }) { // Recebe o nome do usuár
 
     const Salvaragendamento = async () => {
         let paramCorpo = {
-            "data": data,
             "descricao": descricao
         }
 
@@ -233,7 +221,7 @@ export default function Administrador({ userName }) { // Recebe o nome do usuár
 
 
                 <div className='log'>
-                    <button className='logout'><h1 className='log'><strong>Logout</strong></h1></button>
+                    <button className='logout'><Link to ="/"><h1 className='log'><strong>Logout</strong></h1></Link></button>
                 </div>
             </div>
 
@@ -392,14 +380,10 @@ export default function Administrador({ userName }) { // Recebe o nome do usuár
             <div id='agendamento2' className="Calendariozinho fade-in">
                 <Calendario />
                 <div className="digitacao">
-                    <input className="o3"
-                        type="date"
-                        name="data"
-                        value={data}
-                        onChange={(e) => setData(e.target.value)} />
+                    
                     <input className="o3"
                         type="text"
-                        placeholder='Descricao'
+                        placeholder='Digite o dia , o serviço e para qual cliente'
                         name="descricao"
                         value={descricao}
                         onChange={(e) => setDescricao(e.target.value)} />

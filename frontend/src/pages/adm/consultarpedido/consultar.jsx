@@ -63,7 +63,7 @@ export default function Consultar() {
         try {
             const url = `http://localhost:5035/pedido/${id_pedido}?x-access-token=${token}`;
             await axios.delete(url);
-    
+
             // Atualizando a lista local de clientes sem precisar de uma nova requisição
             setClientes((prevClientes) => prevClientes.filter(cliente => cliente.id_pedido !== id_pedido));
             toast.success(`${nome} removido da lista de pedidos!`);
@@ -126,6 +126,9 @@ export default function Consultar() {
                                     <button onClick={() => excluir(item.id_pedido, item.carro)}>
                                         Excluir
                                     </button>
+                                    <button>
+                                        Alterar
+                                    </button>
                                 </td>
                             </tr>
                         ))
@@ -139,7 +142,7 @@ export default function Consultar() {
 
             <Link to="/adm">
                 <button className="voltar">
-                    <i className="fas fa-arrow-left" style={{ fontSize: '35px', color: 'white' }}></i> 
+                    <i className="fas fa-arrow-left" style={{ fontSize: '35px', color: 'white' }}></i>
                 </button>
             </Link>
         </div>
